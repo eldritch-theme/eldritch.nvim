@@ -537,7 +537,7 @@ local function setup(configs)
       -- Notify
       NotifyInfoIcon = { fg = colors.pink },
       NotifyInfoTitle = { fg = colors.pink },
-      NotifyInfoBorder = { fg = color.green },
+      NotifyInfoBorder = { fg = colors.green },
       NotifyErrorIcon = { fg = colors.red },
       NotifyErrorTitle = { fg = colors.red },
       NotifyErrorBorder = { fg = "#DD6E6B" },
