@@ -45,7 +45,7 @@ local function setup(configs)
       Number = { fg = colors.orange },
       Boolean = { fg = colors.cyan },
       Float = { fg = colors.orange },
-      FloatBorder = { fg = colors.white },
+      FloatBorder = { fg = colors.green },
       Operator = { fg = colors.green },
       Keyword = { fg = colors.cyan },
       Keywords = { fg = colors.cyan },
@@ -285,9 +285,9 @@ local function setup(configs)
       GitSignsCurrentLineBlame = { fg = colors.white },
 
       -- Telescope
-      TelescopePromptBorder = { fg = colors.comment },
-      TelescopeResultsBorder = { fg = colors.comment },
-      TelescopePreviewBorder = { fg = colors.comment },
+      TelescopePromptBorder = { fg = colors.cyan },
+      TelescopeResultsBorder = { fg = colors.green },
+      TelescopePreviewBorder = { fg = colors.green },
       TelescopeSelection = { fg = colors.white, bg = colors.selection },
       TelescopeMultiSelection = { fg = colors.green, bg = colors.selection },
       TelescopeNormal = { fg = colors.fg, bg = colors.bg },
@@ -373,19 +373,19 @@ local function setup(configs)
 
       --LSP Saga
       LspFloatWinNormal = { fg = colors.fg },
-      LspFloatWinBorder = { fg = colors.comment },
-      LspSagaHoverBorder = { fg = colors.comment },
-      LspSagaSignatureHelpBorder = { fg = colors.comment },
-      LspSagaCodeActionBorder = { fg = colors.comment },
-      LspSagaDefPreviewBorder = { fg = colors.comment },
-      LspLinesDiagBorder = { fg = colors.comment },
-      LspSagaRenameBorder = { fg = colors.comment },
-      LspSagaBorderTitle = { fg = colors.menu },
+      LspFloatWinBorder = { fg = colors.green },
+      LspSagaHoverBorder = { fg = colors.green },
+      LspSagaSignatureHelpBorder = { fg = colors.green },
+      LspSagaCodeActionBorder = { fg = colors.green },
+      LspSagaDefPreviewBorder = { fg = colors.green },
+      LspLinesDiagBorder = { fg = colors.green },
+      LspSagaRenameBorder = { fg = colors.green },
+      LspSagaBorderTitle = { fg = colors.cyan },
       LSPSagaDiagnosticTruncateLine = { fg = colors.comment },
-      LspSagaDiagnosticBorder = { fg = colors.comment },
+      LspSagaDiagnosticBorder = { fg = colors.green },
       LspSagaShTruncateLine = { fg = colors.comment },
       LspSagaDocTruncateLine = { fg = colors.comment },
-      LspSagaLspFinderBorder = { fg = colors.comment },
+      LspSagaLspFinderBorder = { fg = colors.green },
       CodeActionNumber = { bg = "NONE", fg = colors.cyan },
 
       -- IndentBlankLine
@@ -524,7 +524,7 @@ local function setup(configs)
       DapUIStoppedThread = { fg = colors.bright_purple },
       DapUISource = { fg = colors.bright_blue },
       DapUILineNumber = { fg = colors.bright_purple },
-      DapUIFloatBorder = { fg = colors.bright_purple },
+      DapUIFloatBorder = { fg = colors.green },
       DapUIWatchesEmpty = { fg = colors.purple },
       DapUIWatchesValue = { fg = colors.bright_cyan },
       DapUIWatchesError = { fg = colors.purple },
@@ -537,13 +537,13 @@ local function setup(configs)
       -- Notify
       NotifyInfoIcon = { fg = colors.pink },
       NotifyInfoTitle = { fg = colors.pink },
-      NotifyInfoBorder = { fg = "#2C453F" },
+      NotifyInfoBorder = { fg = color.green },
       NotifyErrorIcon = { fg = colors.red },
       NotifyErrorTitle = { fg = colors.red },
       NotifyErrorBorder = { fg = "#DD6E6B" },
       NotifyWarnIcon = { fg = colors.orange },
       NotifyWarnTitle = { fg = colors.orange },
-      NotifyWarnBorder = { fg = "#785637" },
+      NotifyWarnBorder = { fg = colors.yellow },
    }
 end
 
