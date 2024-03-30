@@ -219,7 +219,8 @@ local function setup(configs)
       ["@lsp.type.property"] = { fg = colors.green },
       ["@lsp.type.struct"] = { fg = colors.cyan },
       ["@lsp.type.type"] = { fg = colors.bright_purple },
-      ["@lsp.type.variable"] = { fg = colors.cyan },
+      ["@lsp.type.variable"] = {}, --defer to tree sitter for regula rvariables
+      ["@lsp.type.namespace.python"] = { link = "@variable" },
 
       -- HTML
       htmlArg = { fg = colors.pink },
