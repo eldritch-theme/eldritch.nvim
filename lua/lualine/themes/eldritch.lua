@@ -1,53 +1,49 @@
-local eldritch = require("eldritch")
-local configs = eldritch.configs()
-local colors = eldritch.colors()
+local colors = require("eldritch.colors").setup()
+local config = require("eldritch.config").options
 
-local bg = configs.transparent_bg and colors.none or configs.lualine_bg_color or colors.selection
+local eldritch = {}
 
--- Green
-local normal = {
-   a = { fg = colors.black, bg = colors.green, gui = "bold" },
-   b = { fg = colors.green, bg = bg },
-   c = { fg = colors.fg, bg = bg },
+eldritch.normal = {
+  a = { bg = colors.cyan, fg = colors.black },
+  b = { bg = colors.fg_gutter, fg = colors.cyan },
+  c = { bg = colors.bg_highlight, fg = colors.fg_sidebar },
 }
 
--- Purple
-local command = {
-   a = { fg = colors.black, bg = colors.purple, gui = "bold" },
-   b = { fg = colors.purple, bg = bg },
+eldritch.insert = {
+  a = { bg = colors.green, fg = colors.black },
+  b = { bg = colors.fg_gutter, fg = colors.green },
 }
 
--- Red
-local visual = {
-   b = { fg = colors.red, bg = bg },
-   a = { fg = colors.black, bg = colors.red, gui = "bold" },
+eldritch.command = {
+  a = { bg = colors.pink, fg = colors.black },
+  b = { bg = colors.fg_gutter, fg = colors.pink },
 }
 
--- Visual
-local inactive = {
-   a = { fg = colors.white, bg = colors.visual, gui = "bold" },
-   b = { fg = colors.black, bg = colors.white },
+eldritch.visual = {
+  a = { bg = colors.purple, fg = colors.black },
+  b = { bg = colors.fg_gutter, fg = colors.purple },
 }
 
--- Yellow
-local replace = {
-   a = { fg = colors.black, bg = colors.yellow, gui = "bold" },
-   b = { fg = colors.yellow, bg = bg },
-   c = { fg = colors.white, bg = bg },
+eldritch.replace = {
+  a = { bg = colors.red, fg = colors.black },
+  b = { bg = colors.fg_gutter, fg = colors.red },
 }
 
--- Cyan
-local insert = {
-   a = { fg = colors.black, bg = colors.cyan, gui = "bold" },
-   b = { fg = colors.cyan, bg = bg },
-   c = { fg = colors.white, bg = bg },
+eldritch.terminal = {
+  a = { bg = colors.green, fg = colors.black },
+  b = { bg = colors.fg_gutter, fg = colors.green },
 }
 
-return {
-   normal = normal,
-   command = command,
-   visual = visual,
-   inactive = inactive,
-   replace = replace,
-   insert = insert,
+eldritch.inactive = {
+  a = { bg = colors.bg_statusline, fg = colors.dark_cyan },
+  b = { bg = colors.bg_statusline, fg = colors.fg_gutter, gui = "bold" },
+  c = { bg = colors.bg_statusline, fg = colors.fg_gutter },
 }
+
+if config.lualine_bold then
+  for _, mode in pairs(eldritch) do
+    mode.a.gui = "bold"
+  end
+end
+
+return eldritch
