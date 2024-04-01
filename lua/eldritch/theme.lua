@@ -301,7 +301,7 @@ function M.setup()
     ["@property"] = { fg = c.purple },
 
     --- Identifiers
-    ["@variable"] = { fg = c.dark_cyan, style = options.styles.variables }, -- Any variable name that does not have another highlight.
+    ["@variable"] = { fg = c.dark_green, style = options.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
     ["@module.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
 
