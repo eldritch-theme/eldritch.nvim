@@ -117,10 +117,10 @@ function M.setup()
     -- Repeat        = { }, --   for, do, while, etc.
     -- Label         = { }, --    case, default, etc.
     Operator = { fg = c.cyan }, -- "sizeof", "+", "*", etc.
-    Keyword = { fg = c.dark_green, style = options.styles.keywords }, --  any other keyword
+    Keyword = { fg = c.dark_cyan, style = options.styles.keywords }, --  any other keyword
     -- Exception     = { }, --  try, catch, throw
 
-    PreProc = { fg = c.dark_green }, -- (preferred) generic Preprocessor
+    PreProc = { fg = c.dark_cyan }, -- (preferred) generic Preprocessor
     -- Include       = { }, --  preprocessor #include
     -- Define        = { }, --   preprocessor #define
     -- Macro         = { }, --    same as Define
