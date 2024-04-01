@@ -10,87 +10,107 @@ Main Theme repo can be found [here](https://github.com/eldritch-theme/eldritch)
 ### Showcase
 
 <figure>
-<img src="screenshot.png" alt="Screenshot"/><br/>
 <figcaption>Transparent disabled (default)</figcaption>
+<img src="screenshot.png" alt="Screenshot"/><br/>
 </figure>
 <figure>
-<img src="screenshot-transparent.png" alt="Screenshot"/><br/>
 <figcaption>Transparent enabled</figcaption>
+<img src="screenshot-transparent.png" alt="Screenshot"/><br/>
+</figure>
+<figure>
+<figcaption>Python (basepyright) Example</figcaption>
+<img src="python-screenshot.png" alt="Screenshot"/><br/>
 </figure>
 
 ### Installation
 Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 ```lua
 {
-  "eldritch-theme/eldritch-nvim",
-  opts = {},
+  "eldritch-theme/eldritch.nvim",
+  lazy = false,
   priority = 1000,
-  config = function(opts)
-    local eldritch = require("eldritch")
-    eldritch.setup(opts)
-    vim.cmd("colorscheme eldritch")
+  opts = {},
+}
+```
 
-    -- If using lualine
-    require("lualine").setup({
-      options = {
-        theme = "eldritch"
-      }
-    })
-  end,
+### Usage
+#### Lua
+```lua
+vim.cmd[[colorscheme eldritch]]
+```
+#### [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+```lua
+-- Lua
+require('lualine').setup {
+  options = {
+    -- ... your lualine config
+    theme = 'eldritch'
+    -- ... your lualine config
+  }
 }
 ```
 
 ### Configuration
-The configuration must be run before `colorscheme` command to take effect. The following are the default options, no need to pass in unless you want to change individual options:
+[Eldritch](https://github.com/eldritch-theme/eldritch.nvim) uses the default options, unless `setup` is explicitly called.
 ```lua
-eldritch.setup({
-  colors = {
-    bg = "#212337",
-    fg = "#ebfafa",
-    selection = "#323449",
-    comment = "#7081d0",
-    red = "#f16c75",
-    orange = "#f7c67f",
-    yellow = "#f1fc79",
-    green = "#37f499",
-    purple = "#a48cf2",
-    cyan = "#04d1f9",
-    pink = "#f265b5",
-    bright_red = "#f9515d",
-    bright_green = "#37f499",
-    bright_yellow = "#e9f941",
-    bright_blue = "#9071f4",
-    bright_magenta = "#f265b5",
-    bright_cyan = "#66e4fd",
-    bright_white = "#FFFFFF",
-    menu = "#212337",
-    visual = "#3E4452",
-    gutter_fg = "#4B5263",
-    nontext = "#3B4048",
-    white = "#ABB2BF",
-    black = "#191A21",
-    none = "none",
+require("eldritch").setup({
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  transparent = false, -- Enable this to disable setting the background color
+  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+  styles = {
+    -- Style to be applied to different syntax groups
+    -- Value is any valid attr-list value for `:help nvim_set_hl`
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = {},
+    variables = {},
+    -- Background styles. Can be "dark", "transparent" or "normal"
+    sidebars = "dark", -- style for sidebars, see below
+    floats = "dark", -- style for floating windows
   },
-   -- show the '~' characters after the end of buffers
-  show_end_of_buffer = true, -- default false
-  -- use transparent background
-  transparent_bg = false, -- set to true for transparent background including lualine
-  lualine_bg_color = "#323449", -- Default, sets to none if using transparent_bg
-  italic_comment = true,
-  -- overrides the default highlights with table see `:h synIDattr`
-  overrides = {}
-  -- You can use overrides as table like this
-  -- overrides = {
-  --   NonText = { fg = "white" }, -- set NonText fg to white
-  --   NvimTreeIndentMarker = { link = "NonText" }, -- link to NonText highlight
-  --   Nothing = {} -- clear highlight of Nothing
-  -- },
-  -- Or you can also use it like a function to get color from theme
-  -- overrides = function (colors)
-  --   return {
-  --     NonText = { fg = colors.white }, -- set NonText fg to white of theme
-  --   }
-  -- end,
+  sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+  dim_inactive = false, -- dims inactive windows
+  lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
+
+  --- You can override specific color groups to use other groups or a hex color
+  --- function will be called with a ColorScheme table
+  ---@param colors ColorScheme
+  on_colors = function(colors) end,
+
+  --- You can override specific highlights to use other groups or a hex color
+  --- function will be called with a Highlights and ColorScheme table
+  ---@param highlights Highlights
+  ---@param colors ColorScheme
+  on_highlights = function(highlights, colors) end,
+})
+```
+
+### 🪓 Overriding Colors & Highlight Groups
+
+How the highlight groups are calculated:
+
+1. `colors` are determined based on your configuration, with the ability to
+   override them using `config.on_colors(colors)`.
+1. These `colors` are utilized to generate the highlight groups.
+1. `config.on_highlights(highlights, colors)` can be used to override highlight
+   groups.
+
+### Settings and color alteration demonstration
+
+```lua
+require("eldritch").setup({
+  -- disable italic for functions
+  styles = {
+    functions = {}
+  },
+  sidebars = { "qf", "vista_kind", "terminal", "packer" },
+  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  on_colors = function(colors)
+    colors.hint = colors.orange
+    colors.error = "#ff0000"
+  end
 })
 ```
 
