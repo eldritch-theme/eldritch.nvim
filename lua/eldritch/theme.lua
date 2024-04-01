@@ -523,7 +523,7 @@ function M.setup()
     DashboardFooter = { fg = c.dark_cyan },
     DashboardKey = { fg = c.purple },
     DashboardDesc = { fg = c.cyan },
-    DashboardIcon = { fg = c.cyan, bold = true },
+    DashboardIcon = { fg = c.green, bold = true },
 
     -- Alpha
     AlphaShortcut = { fg = c.orange },
