@@ -117,10 +117,10 @@ function M.setup()
     -- Repeat        = { }, --   for, do, while, etc.
     -- Label         = { }, --    case, default, etc.
     Operator = { fg = c.cyan }, -- "sizeof", "+", "*", etc.
-    Keyword = { fg = c.dark_cyan, style = options.styles.keywords }, --  any other keyword
+    Keyword = { fg = c.dark_green, style = options.styles.keywords }, --  any other keyword
     -- Exception     = { }, --  try, catch, throw
 
-    PreProc = { fg = c.dark_cyan }, -- (preferred) generic Preprocessor
+    PreProc = { fg = c.dark_green }, -- (preferred) generic Preprocessor
     -- Include       = { }, --  preprocessor #include
     -- Define        = { }, --   preprocessor #define
     -- Macro         = { }, --    same as Define
@@ -301,7 +301,7 @@ function M.setup()
     ["@property"] = { fg = c.purple },
 
     --- Identifiers
-    ["@variable"] = { fg = c.dark_green, style = options.styles.variables }, -- Any variable name that does not have another highlight.
+    ["@variable"] = { fg = c.cyan, style = options.styles.variables }, -- Any variable name that does not have another highlight.
     ["@variable.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
     ["@module.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
 
