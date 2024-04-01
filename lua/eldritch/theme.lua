@@ -281,6 +281,7 @@ function M.setup()
 
     --- Literals
     ["@string.documentation"] = { fg = c.yellow },
+    ["@string.html"] = { fg = c.dark_yellow },
     ["@string.regexp"] = { fg = c.cyan }, -- For regexes.
     ["@string.escape"] = { fg = c.magenta }, -- For escape characters within a string.
 
