@@ -16,6 +16,7 @@ M.default = {
   comment = "#7081d0",
   dark5 = "#5866A2",
   bright_cyan = "#39DDFD",
+  visual = "#8195ef",
   cyan = "#04d1f9",
   dark_cyan = "#10A1BD",
   magenta = "#a48cf2",
