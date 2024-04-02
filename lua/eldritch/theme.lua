@@ -88,8 +88,8 @@ function M.setup()
     TabLineFill = { bg = c.black }, -- tab pages line, where there are no labels
     TabLineSel = { fg = c.black, bg = c.cyan }, -- tab pages line, active tab page label
     Title = { fg = c.cyan, bold = true }, -- titles for output from ":set all", ":autocmd" etc.
-    Visual = { bg = c.bg_visual }, -- Visual mode selection
-    VisualNOS = { bg = c.bg_visual }, -- Visual mode selection when vim is "Not Owning the Selection".
+    Visual = { bg = c.magenta3 }, -- Visual mode selection
+    VisualNOS = { bg = c.magenta3 }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = c.orange }, -- warning messages
     Whitespace = { fg = c.fg_gutter }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu = { bg = c.bg_visual }, -- current match in 'wildmenu' completion
