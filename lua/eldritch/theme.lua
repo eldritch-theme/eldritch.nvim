@@ -403,7 +403,7 @@ function M.setup()
     -- LspTrouble
     TroubleText = { fg = c.fg_dark },
     TroubleCount = { fg = c.magenta, bg = c.fg_gutter },
-    TroubleNormal = { fg = c.fg, bg = c.bg_sidebar },
+    TroubleNormal = { fg = c.fg, bg = transparent_bg_float },
 
     -- Illuminate
     illuminatedWord = { bg = c.fg_gutter },
