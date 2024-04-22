@@ -675,7 +675,7 @@ function M.setup()
     CmpItemKindTabNine = { fg = c.cyan, bg = c.none },
 
     -- headlines.nvim
-    CodeBlock = { bg = c.bg_dark },
+    CodeBlock = { bg = c.bg_highlight },
 
     -- navic
     NavicSeparator = { fg = c.fg, bg = c.none },
