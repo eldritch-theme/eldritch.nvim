@@ -912,6 +912,11 @@ function M.setup()
 
   options.on_highlights(theme.highlights, theme.colors)
 
+  -- Use #000000 for full transparency
+  if options.transparent then
+    theme.highlights.NotifyBackground = { bg = "#000000" }
+  end
+
   return theme
 end
 
