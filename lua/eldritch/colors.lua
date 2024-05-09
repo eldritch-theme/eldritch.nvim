@@ -29,6 +29,7 @@ M.default = {
   yellow = "#f1fc79",
   dark_yellow = "#c0c95f",
   green = "#37f499",
+  bright_green = "#00FA82",
   dark_green = "#33C57F",
   red = "#f16c75",
   bright_red = "#f0313e",
