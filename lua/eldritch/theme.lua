@@ -23,7 +23,7 @@ function M.setup()
     colors = colors.setup(),
   }
   local is_transparent = theme.config.transparent
-  local transparent_bg_float = is_transparent and colors.none or colors.bg_float
+  local transparent_bg_float = is_transparent and colors.none or theme.colors.bg_float
 
   local c = theme.colors
 
