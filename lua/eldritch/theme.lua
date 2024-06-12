@@ -23,7 +23,7 @@ function M.setup()
     colors = colors.setup(),
   }
   local is_transparent = theme.config.transparent
-  local transparent_bg_float = is_transparent and colors.none or colors.bg_float
+  local bg_float_configured = is_transparent and theme.colors.none or theme.colors.bg_float
 
   local c = theme.colors
 
@@ -65,9 +65,9 @@ function M.setup()
     Normal = { fg = c.fg, bg = options.transparent and c.none or c.bg }, -- normal text
     NormalNC = { fg = c.fg, bg = options.transparent and c.none or options.dim_inactive and c.bg_dark or c.bg }, -- normal text in non-current windows
     NormalSB = { fg = c.fg_sidebar, bg = c.bg_sidebar }, -- normal text in sidebar
-    NormalFloat = { fg = c.fg_float, bg = transparent_bg_float }, -- Normal text in floating windows.
-    FloatBorder = { fg = c.green, bg = transparent_bg_float },
-    FloatTitle = { fg = c.cyan, bg = transparent_bg_float },
+    NormalFloat = { fg = c.fg_float, bg = bg_float_configured }, -- Normal text in floating windows.
+    FloatBorder = { fg = c.green, bg = bg_float_configured },
+    FloatTitle = { fg = c.cyan, bg = bg_float_configured },
     Pmenu = { bg = c.bg_popup, fg = c.fg }, -- Popup menu: normal item.
     PmenuSel = { bg = util.darken(c.fg_gutter, 0.8) }, -- Popup menu: selected item.
     PmenuSbar = { bg = util.lighten(c.bg_popup, 0.95) }, -- Popup menu: scrollbar.
@@ -202,7 +202,7 @@ function M.setup()
     LspCodeLens = { fg = c.comment },
     LspInlayHint = { bg = util.darken(c.cyan, 0.1), fg = c.dark3 },
 
-    LspInfoBorder = { fg = c.border_highlight, bg = transparent_bg_float },
+    LspInfoBorder = { fg = c.border_highlight, bg = bg_float_configured },
 
     ALEErrorSign = { fg = c.red },
     ALEWarningSign = { fg = c.orange },
@@ -403,7 +403,7 @@ function M.setup()
     -- LspTrouble
     TroubleText = { fg = c.fg_dark },
     TroubleCount = { fg = c.magenta, bg = c.fg_gutter },
-    TroubleNormal = { fg = c.fg, bg = transparent_bg_float },
+    TroubleNormal = { fg = c.fg, bg = bg_float_configured },
 
     -- Illuminate
     illuminatedWord = { bg = c.fg_gutter },
@@ -541,14 +541,14 @@ function M.setup()
     WhichKeyDesc = { fg = c.green },
     WhichKeySeperator = { fg = c.comment },
     WhichKeySeparator = { fg = c.comment },
-    WhichKeyFloat = { bg = transparent_bg_float },
+    WhichKeyFloat = { bg = bg_float_configured },
     WhichKeyValue = { fg = c.dark5 },
 
     -- LspSaga
     DiagnosticWarning = { link = "DiagnosticWarn" },
     DiagnosticInformation = { link = "DiagnosticInfo" },
 
-    LspFloatWinNormal = { fg = colors.fg, bg = transparent_bg_float },
+    LspFloatWinNormal = { fg = colors.fg, bg = bg_float_configured },
     LspFloatWinBorder = { fg = colors.green },
     LspSagaHoverBorder = { fg = colors.green },
     LspSagaSignatureHelpBorder = { fg = colors.green },
@@ -660,8 +660,8 @@ function M.setup()
     LightspeedUnlabeledMatch = { fg = c.cyan, bold = true },
 
     -- Cmp
-    CmpDocumentation = { fg = c.fg, bg = transparent_bg_float },
-    CmpDocumentationBorder = { fg = c.border_highlight, bg = transparent_bg_float },
+    CmpDocumentation = { fg = c.fg, bg = bg_float_configured },
+    CmpDocumentationBorder = { fg = c.border_highlight, bg = bg_float_configured },
     CmpGhostText = { fg = c.terminal_black },
 
     CmpItemAbbr = { fg = c.fg, bg = c.none },
@@ -724,7 +724,7 @@ function M.setup()
     LazyProgressTodo = { bold = true, fg = c.fg_gutter },
 
     -- Notify
-    NotifyBackground = { fg = c.fg, bg = transparent_bg_float },
+    NotifyBackground = { fg = c.fg, bg = bg_float_configured },
     --- Border
     NotifyERRORBorder = { fg = util.darken(c.red, 0.3), bg = options.transparent and c.none or c.bg },
     NotifyWARNBorder = { fg = util.darken(c.orange, 0.3), bg = options.transparent and c.none or c.bg },
@@ -804,13 +804,13 @@ function M.setup()
     -- Noice
     NoiceCompletionItemKindDefault = { fg = c.fg_dark, bg = c.none },
     -- Default
-    NoiceCmdline = { fg = c.green, bg = transparent_bg_float },
-    NoiceCmdlineIcon = { fg = c.green, bg = transparent_bg_float },
-    NoiceCmdlinePopupBorder = { fg = c.green, bg = transparent_bg_float },
-    NoiceCmdlinePopupTitle = { fg = c.green, bg = transparent_bg_float },
+    NoiceCmdline = { fg = c.green, bg = bg_float_configured },
+    NoiceCmdlineIcon = { fg = c.green, bg = bg_float_configured },
+    NoiceCmdlinePopupBorder = { fg = c.green, bg = bg_float_configured },
+    NoiceCmdlinePopupTitle = { fg = c.green, bg = bg_float_configured },
     -- Filter (shell command)
-    NoiceCmdlinePopupBorderFilter = { fg = c.pink, bg = transparent_bg_float },
-    NoiceCmdlineIconFilter = { fg = c.pink, bg = transparent_bg_float },
+    NoiceCmdlinePopupBorderFilter = { fg = c.pink, bg = bg_float_configured },
+    NoiceCmdlineIconFilter = { fg = c.pink, bg = bg_float_configured },
     -- Lua
     NoiceCmdlinePopupBorderLua = { fg = c.dark_cyan },
     NoiceCmdlineIconLua = { fg = c.dark_cyan },
