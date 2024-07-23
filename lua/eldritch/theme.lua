@@ -817,6 +817,11 @@ function M.setup()
     -- Help
     NoiceCmdlinePopupBorderHelp = { fg = c.yellow },
     NoiceCmdlineIconHelp = { fg = c.yellow },
+    -- LspProgress
+    NoiceLspProgressSpinner = { fg = c.cyan },
+    NoiceLspProgressTitle = { fg = c.green },
+    NoiceLspProgressClient = { fg = c.purple },
+    NoiceMini = { bg = c.bg_highlight },
 
     TreesitterContext = { bg = util.darken(c.fg_gutter, 0.8) },
     Hlargs = { fg = c.yellow },
