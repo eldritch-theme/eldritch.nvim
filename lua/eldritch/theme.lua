@@ -506,6 +506,8 @@ function M.setup()
     NeoTreeNormal = { fg = c.fg_sidebar, bg = options.transparent and c.none or c.bg_sidebar },
     NeoTreeNormalNC = { fg = c.fg_sidebar, bg = options.transparent and c.none or c.bg_sidebar },
     NeoTreeDimText = { fg = c.fg_gutter },
+    NeoTreeTitleBar = { link = "NeoTreeNormalNC" },
+    NeoTreeFloatBorder = { link = "NeoTreeNormalNC" },
 
     -- Fern
     FernBranchText = { fg = c.cyan },
