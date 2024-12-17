@@ -693,6 +693,14 @@ function M.setup()
     BlinkCmpLabelMatch = { fg = c.bright_cyan, bg = c.none },
     BlinkCmpMenu = { fg = c.fg, bg = c.bg_highlight },
 
+    -- fzf-lua
+    FzfLuaNormal = { fg = c.fg, bg = bg_float_configured },
+    FzfLuaBorder = { fg = c.green, bg = bg_float_configured },
+    FzfLuaSearch = { fg = c.fg, bg = bg_float_configured },
+    FzfLuaTitle = { fg = c.cyan, bg = bg_float_configured },
+    FzfLuaCursorLine = { bg = c.bg_highlight, fg = c.green },
+    FzfLuaFzfPrompt = { bg = bg_float_configured, fg = c.purple },
+
     -- headlines.nvim
     CodeBlock = { bg = c.bg_highlight },
 
