@@ -23,7 +23,9 @@ Main Theme repo can be found [here](https://github.com/eldritch-theme/eldritch)
 </figure>
 
 ### Installation
+
 Using [lazy.nvim](https://github.com/folke/lazy.nvim):
+
 ```lua
 {
   "eldritch-theme/eldritch.nvim",
@@ -34,11 +36,15 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 ```
 
 ### Usage
+
 #### Lua
+
 ```lua
 vim.cmd[[colorscheme eldritch]]
 ```
+
 #### [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+
 ```lua
 -- Lua
 require('lualine').setup {
@@ -50,8 +56,23 @@ require('lualine').setup {
 }
 ```
 
+#### fzf-lua
+
+If you want transparent background for all of fzf-lua you need to pass the following into your opts or setup of fzf-lua:
+
+```
+    fzf_colors = {
+      true,
+      bg = "-1",
+      gutter = "-1",
+    },
+
+```
+
 ### Configuration
+
 [Eldritch](https://github.com/eldritch-theme/eldritch.nvim) uses the default options, unless `setup` is explicitly called.
+
 ```lua
 require("eldritch").setup({
   -- your configuration comes here
@@ -117,9 +138,11 @@ require("eldritch").setup({
 #### Extras
 
 ##### [dashboard.nvim](https://github.com/nvimdev/dashboard-nvim) banner
+
 <img src="dashboard.png" alt="Dashboard"/><br/>
 
 If you want the header for dashboard.nvim inside your dashboard lua config:
+
 ```lua
     local logo = [[
 ⠀⠀⠀⠀⠀⠀⠀⣠⡤⠶⡄⠀⠀⠀⠀⠀⠀⠀⢠⠶⣦⣀⠀⠀⠀⠀⠀⠀⠀
@@ -145,6 +168,6 @@ If you want the header for dashboard.nvim inside your dashboard lua config:
     }
 ```
 
-
 #### Special Thanks
- -  To [@folke](https://github.com/folke/tokyonight.nvim) for his tokyonight theme. I used his repo as a template to create this theme. I cloned his repo and replaced the colors with mine as well as some minor tweaks.
+
+- To [@folke](https://github.com/folke/tokyonight.nvim) for his tokyonight theme. I used his repo as a template to create this theme. I cloned his repo and replaced the colors with mine as well as some minor tweaks.
