@@ -5,6 +5,7 @@ local M = {}
 ---@field on_highlights fun(highlights: Highlights, colors: ColorScheme)
 local defaults = {
   transparent = false, -- Enable this to disable setting the background color
+  palette = "default", -- Choose between 'default' or 'darker' mode
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups

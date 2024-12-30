@@ -42,14 +42,59 @@ M.default = {
   },
 }
 
+---@class Palette
+M.darker = {
+  none = "NONE",
+  bg = "#171928",
+  bg_dark = "#0f101a",
+  bg_highlight = "#1e2033",
+  fg = "#d8e6e6",
+  fg_dark = "#8e94b8",
+  fg_gutter = "#2d3249",
+  fg_gutter_light = "#4a5584",
+  terminal_black = "#2a2e45",
+  dark3 = "#445084",
+  comment = "#506299",
+  dark5 = "#3d4775",
+  visual = "#554971",
+  bg_visual = "#554971",
+  bright_cyan = "#2bafcc",
+  cyan = "#0396b3",
+  dark_cyan = "#0c7a94",
+  magenta = "#8b75d9",
+  magenta2 = "#94407a",
+  magenta3 = "#5c2644",
+  pink = "#d154a1",
+  purple = "#8b75d9",
+  orange = "#d4a666",
+  yellow = "#ccd663",
+  dark_yellow = "#a1a34d",
+  green = "#2dcc82",
+  bright_green = "#00cc68",
+  dark_green = "#299e64",
+  red = "#cc5860",
+  bright_red = "#cc2935",
+  git = {
+    change = "#506299",
+    add = "#2dcc82",
+    delete = "#cc5860"
+  },
+  gitSigns = {
+    add = "#2dcc82",
+    change = "#506299",
+    delete = "#cc5860"
+  },
+}
+
 ---@return ColorScheme
 function M.setup(opts)
   opts = opts or {}
   local config = require("eldritch.config")
+  local palette = config.options.palette or "default"
 
   -- Color Palette
   ---@class ColorScheme: Palette
-  local colors = M.default
+  local colors = M[palette] or M.default
 
   util.bg = colors.bg
 
