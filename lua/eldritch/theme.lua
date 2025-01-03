@@ -545,6 +545,7 @@ function M.setup()
     WhichKeySeparator = { fg = c.comment },
     WhichKeyFloat = { bg = bg_float_configured },
     WhichKeyValue = { fg = c.dark5 },
+    WhichKeyBorder = { fg = c.cyan },
 
     -- LspSaga
     DiagnosticWarning = { link = "DiagnosticWarn" },
