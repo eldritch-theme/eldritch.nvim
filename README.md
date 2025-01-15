@@ -22,6 +22,14 @@ Main Theme repo can be found [here](https://github.com/eldritch-theme/eldritch)
 <img src="python-screenshot.png" alt="Screenshot"/><br/>
 </figure>
 
+<details><summary><b>🌃 Darker palette screenshots</b></summary>
+
+| Dashboard | Python and Lua Highlights | Zig Highlights |
+|:-:|:-:|:-:|
+| ![Dashboard on dark theme](dashboard-darker.png) | ![Python and Lua highlights comparison](py-lua.png) | ![Zig highlights](zig.png) |
+
+</details>
+
 ### Installation
 
 Using [lazy.nvim](https://github.com/folke/lazy.nvim):
@@ -77,6 +85,7 @@ If you want transparent background for all of fzf-lua you need to pass the follo
 require("eldritch").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
+  palette = "default", -- Available options: "default" (standard palette), "darker" (darker variant)
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
   styles = {
