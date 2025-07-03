@@ -478,7 +478,7 @@ function M.setup()
     TelescopePreviewBorder = { fg = c.green },
     TelescopeSelection = { fg = c.fg, bg = c.dark5 },
     TelescopeMultiSelection = { fg = c.green, bg = c.dark5 },
-    TelescopeNormal = { fg = c.fg, bg = c.bg },
+    TelescopeNormal = { fg = c.fg, bg = options.transparent and c.none or c.bg },
     TelescopeMatching = { fg = c.pink },
     TelescopePromptPrefix = { fg = c.green },
     TelescopeResultsDiffDelete = { fg = c.red },
