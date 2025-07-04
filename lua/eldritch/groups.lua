@@ -313,7 +313,7 @@ local function setup(configs)
     TelescopePreviewBorder = { fg = colors.green },
     TelescopeSelection = { fg = colors.white, bg = colors.selection },
     TelescopeMultiSelection = { fg = colors.green, bg = colors.selection },
-    TelescopeNormal = { fg = colors.fg, bg = colors.bg },
+    TelescopeNormal = { fg = colors.fg, bg = configs.transparent and "NONE" or colors.bg },
     TelescopeMatching = { fg = colors.pink },
     TelescopePromptPrefix = { fg = colors.green },
     TelescopeResultsDiffDelete = { fg = colors.red },
