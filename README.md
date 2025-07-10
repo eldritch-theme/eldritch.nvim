@@ -85,7 +85,7 @@ If you want transparent background for all of fzf-lua you need to pass the follo
 require("eldritch").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
-  palette = "default", -- Available options: "default" (standard palette), "darker" (darker variant)
+  -- palette = "default", -- This option is deprecated. Use `vim.cmd[[colorscheme eldritch-dark]]` instead.
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
   styles = {
