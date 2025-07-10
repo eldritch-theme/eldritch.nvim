@@ -5,7 +5,7 @@ local M = {}
 ---@field on_highlights fun(highlights: Highlights, colors: ColorScheme)
 local defaults = {
   transparent = false, -- Enable this to disable setting the background color
-  palette = "default", -- Choose between 'default' or 'darker' mode
+  palette = "default", -- DEPRECATED: Use `vim.cmd.colorscheme eldritch-dark` instead to switch to the darker palette.
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {
     -- Style to be applied to different syntax groups
@@ -41,17 +41,27 @@ local defaults = {
 
 ---@type Config
 M.options = {}
+-- NOTE: This is temprorary for retrocompatibility with palette option
+M.initial_options = {} -- To store options from eldritch.setup()
 
 ---@param options Config|nil
 function M.setup(options)
   M.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
+  M.initial_options = M.options
 end
 
 ---@param options Config|nil
 function M.extend(options)
-  M.options = vim.tbl_deep_extend("force", {}, M.options or defaults, options or {})
+  local base_options = M.options
+  if type(base_options) ~= "table" then
+    base_options = defaults
+  end
+  -- Ensure 'options' is a table before passing to vim.tbl_deep_extend
+  local opts_to_merge = {}
+  if type(options) == "table" then
+    opts_to_merge = options
+  end
+  M.options = vim.tbl_deep_extend("force", {}, base_options, opts_to_merge)
 end
-
-M.setup()
 
 return M

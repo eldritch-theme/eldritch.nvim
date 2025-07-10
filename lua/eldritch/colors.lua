@@ -77,24 +77,23 @@ M.darker = {
   git = {
     change = "#506299",
     add = "#2dcc82",
-    delete = "#cc5860"
+    delete = "#cc5860",
   },
   gitSigns = {
     add = "#2dcc82",
     change = "#506299",
-    delete = "#cc5860"
+    delete = "#cc5860",
   },
 }
 
 ---@return ColorScheme
-function M.setup(opts)
-  opts = opts or {}
+function M.setup()
   local config = require("eldritch.config")
-  local palette = config.options.palette or "default"
+  local palette_name = config.options.palette or "default"
 
   -- Color Palette
   ---@class ColorScheme: Palette
-  local colors = M[palette] or M.default
+  local colors = M[palette_name] or M.default
 
   util.bg = colors.bg
 

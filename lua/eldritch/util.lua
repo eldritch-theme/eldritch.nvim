@@ -180,7 +180,6 @@ function M.load(theme)
   end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "eldritch"
 
   M.syntax(theme.highlights)
 
