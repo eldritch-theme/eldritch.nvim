@@ -197,7 +197,7 @@ function M.setup()
     DiagnosticUnderlineError = { undercurl = true, sp = c.red }, -- Used to underline "Error" diagnostics
     DiagnosticUnderlineWarn = { undercurl = true, sp = c.orange }, -- Used to underline "Warning" diagnostics
     DiagnosticUnderlineInfo = { undercurl = true, sp = c.yellow }, -- Used to underline "Information" diagnostics
-    DiagnosticUnderlineHint = { undercurl = true, sp = c.pink }, -- Used to underline "Hint" diagnostics
+    DiagnosticUnderlineHint = { undercurl = true, sp = c.dark_green }, -- Used to underline "Hint" diagnostics
 
     LspSignatureActiveParameter = { bg = util.darken(c.bg_visual, 0.4), bold = true },
     LspCodeLens = { fg = c.comment },
