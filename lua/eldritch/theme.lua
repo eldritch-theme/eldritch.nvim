@@ -690,6 +690,8 @@ function M.setup()
     BlinkCmpLabelDeprecated = { fg = c.fg_gutter, bg = c.none, strikethrough = true },
     BlinkCmpLabelMatch = { fg = c.bright_cyan, bg = c.none },
     BlinkCmpMenu = { fg = c.fg, bg = c.bg_highlight },
+    BlinkCmpMenuBorder = { fg = c.green, bg = c.bg },
+    BlinkCmpScrollBarThumb = { fg = c.bg_highlight, bg = c.cyan },
 
     -- fzf-lua
     FzfLuaNormal = { fg = c.fg, bg = bg_float_configured },
