@@ -323,6 +323,13 @@ local function setup(configs)
     -- Flash
     FlashLabel = { bg = colors.red, fg = colors.bright_white },
 
+    -- Oil-Git
+    OilGitAdded = { fg = colors.green },
+    OilGitModified = { fg = colors.yellow },
+    OilGitRenamed = { fg = colors.purple },
+    OilGitUntracked = { fg = colors.cyan },
+    OilGitIgnored = { fg = colors.comment },
+
     -- NvimTree
     NvimTreeNormal = { fg = colors.fg, bg = colors.menu },
     NvimTreeVertSplit = { fg = colors.bg, bg = colors.bg },
