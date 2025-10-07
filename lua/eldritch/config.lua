@@ -53,7 +53,8 @@ end
 ---@param options Config|nil
 function M.extend(options)
   local base_options = M.options
-  if type(base_options) ~= "table" then
+  -- Check if options is properly initialized (not just an empty table)
+  if type(base_options) ~= "table" or vim.tbl_isempty(base_options) or not base_options.styles then
     base_options = defaults
   end
   -- Ensure 'options' is a table before passing to vim.tbl_deep_extend
