@@ -154,11 +154,14 @@ require("eldritch").setup({
 
 #### Extras
 
-##### [dashboard.nvim](https://github.com/nvimdev/dashboard-nvim) banner
+##### Dashboard Logo Banner
+
+- [dashboard.nvim](https://github.com/nvimdev/dashboard-nvim) 
+- [snacks.dashboard](https://github.com/folke/snacks.nvim/blob/main/docs/dashboard.md)
 
 <img src="dashboard.png" alt="Dashboard"/><br/>
 
-If you want the header for dashboard.nvim inside your dashboard lua config:
+If you want the header ascii art for dashboard-nvim or snacks.dashboard
 
 ```lua
     local logo = [[
@@ -177,12 +180,6 @@ If you want the header for dashboard.nvim inside your dashboard lua config:
 ⠀⠀⠀⠀⠁⠀⠈⢧⣈⠀⠘⢦⠀⣀⠇⣼⠃⠰⣄⣡⠞⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⢤⠼⠁⠀⠀⠳⣤⡼⠀⠀⠀⠀⠀⠀
     ]]
-    logo = string.rep("\n", 2) .. logo
-    local opts = {
-      config = {
-        header = vim.split(logo, "\n"),
-    ...
-    }
 ```
 
 #### Special Thanks
