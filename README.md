@@ -30,6 +30,14 @@ Main Theme repo can be found [here](https://github.com/eldritch-theme/eldritch)
 
 </details>
 
+<details><summary><b>🌃 Minimal palette screenshots</b></summary>
+
+| Dashboard | Code Screenshot |
+|:-:|:-:|
+| ![Dashboard on minimal theme](dashboard-minimal.png) | ![Code screenshot](screenshot-minimal.png) |
+
+</details>
+
 ### Installation
 
 Using [lazy.nvim](https://github.com/folke/lazy.nvim):
@@ -85,7 +93,7 @@ If you want transparent background for all of fzf-lua you need to pass the follo
 require("eldritch").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
-  -- palette = "default", -- This option is deprecated. Use `vim.cmd[[colorscheme eldritch-dark]]` instead.
+  -- palette = "default", -- This option is deprecated. Use `vim.cmd[[colorscheme eldritch-dark]]` or `vim.cmd[[colorscheme eldritch-minimal]] instead.
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
   styles = {
