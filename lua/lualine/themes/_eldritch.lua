@@ -11,7 +11,7 @@ function M.get(style)
   hl.normal = {
     a = { bg = colors.cyan, fg = colors.black },
     b = { bg = colors.fg_gutter, fg = colors.cyan },
-    c = { bg = colors.bg_statusline, fg = colors.fg_sidebar },
+    c = { bg = colors.bg_highlight, fg = colors.fg_sidebar },
   }
 
   hl.insert = {
@@ -40,7 +40,7 @@ function M.get(style)
   }
 
   hl.inactive = {
-    a = { bg = colors.bg_statusline, fg = colors.cyan },
+    a = { bg = colors.bg_statusline, fg = colors.dark_cyan or colors.cyan },
     b = { bg = colors.bg_statusline, fg = colors.fg_gutter, gui = "bold" },
     c = { bg = colors.bg_statusline, fg = colors.fg_gutter },
   }
