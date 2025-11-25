@@ -1,2 +1,2 @@
 vim.g.colors_name = "eldritch"
-require("eldritch").load()
+require("eldritch").load({ style = "default" })
