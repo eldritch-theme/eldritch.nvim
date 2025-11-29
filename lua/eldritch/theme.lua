@@ -373,6 +373,7 @@ function M.setup()
 
     -- Python
     ["@lsp.type.namespace.python"] = { link = "@variable" },
+    ["@function.builtin.python"] = { link = "@function" },
 
     -- ts-rainbow
     rainbowcol1 = { fg = c.red },
