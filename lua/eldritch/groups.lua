@@ -243,6 +243,7 @@ local function setup(configs)
     ["@lsp.typemod.variable.injected"] = { link = "@variable" },
     ["@lsp.typemod.variable.static"] = { link = "@constant" },
     ["@lsp.type.namespace.python"] = { link = "@variable" },
+    ["@function.builtin.python"] = { link = "@function" },
 
     -- HTML
     htmlArg = { fg = colors.pink },
