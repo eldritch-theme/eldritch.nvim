@@ -55,7 +55,9 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 #### Helix
 
-The Eldritch theme is available for [Helix editor](https://helix-editor.com/) in three variants:
+The Eldritch theme is available for [Helix editor](https://helix-editor.com/) in three variants. See [HELIX.md](HELIX.md) for detailed installation instructions and features.
+
+**Quick start:**
 
 1. Copy the theme file(s) to your Helix themes directory:
    - Linux/macOS: `~/.config/helix/themes/`
@@ -74,10 +76,12 @@ cp eldritch-minimal.toml ~/.config/helix/themes/
 theme = "eldritch"  # or "eldritch-dark" or "eldritch-minimal"
 ```
 
-**Available Helix themes:**
+**Available variants:**
 - `eldritch.toml` - Default theme with full color palette
 - `eldritch-dark.toml` - Darker background variant
 - `eldritch-minimal.toml` - Minimal color palette variant
+
+For more details, troubleshooting, and feature documentation, see [HELIX.md](HELIX.md).
 
 ### Usage
 
