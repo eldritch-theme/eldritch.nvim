@@ -1,0 +1,215 @@
+# Eldritch Dark Theme for Helix Editor
+# A darker variant of the Eldritch theme inspired by Lovecraftian horror
+# Main repo: https://github.com/eldritch-theme/eldritch.nvim
+
+# UI Elements
+"ui.background" = { bg = "bg" }
+"ui.background.separator" = { fg = "purple" }
+"ui.cursor" = { fg = "bg", bg = "fg" }
+"ui.cursor.primary" = { fg = "bg", bg = "fg" }
+"ui.cursor.match" = { bg = "visual" }
+"ui.cursor.insert" = { fg = "bg", bg = "green" }
+"ui.cursor.select" = { fg = "bg", bg = "cyan" }
+"ui.cursorline" = { bg = "bg_highlight" }
+"ui.linenr" = { fg = "fg_gutter_light" }
+"ui.linenr.selected" = { fg = "green", modifiers = ["bold"] }
+"ui.statusline" = { fg = "fg", bg = "bg_dark" }
+"ui.statusline.inactive" = { fg = "fg_gutter", bg = "bg_dark" }
+"ui.statusline.normal" = { fg = "bg", bg = "cyan", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "magenta", modifiers = ["bold"] }
+"ui.bufferline" = { fg = "fg_gutter", bg = "bg_dark" }
+"ui.bufferline.active" = { fg = "fg", bg = "bg" }
+"ui.bufferline.background" = { bg = "bg_dark" }
+"ui.popup" = { bg = "bg_dark", fg = "fg" }
+"ui.popup.info" = { bg = "bg_dark", fg = "fg" }
+"ui.window" = { fg = "purple" }
+"ui.help" = { bg = "bg_dark", fg = "fg" }
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "cyan" }
+"ui.text.inactive" = { fg = "fg_dark" }
+"ui.text.info" = { fg = "fg", bg = "bg_dark" }
+"ui.virtual" = { fg = "fg_gutter" }
+"ui.virtual.ruler" = { bg = "bg_highlight" }
+"ui.virtual.whitespace" = { fg = "fg_gutter" }
+"ui.virtual.indent-guide" = { fg = "fg_gutter" }
+"ui.virtual.inlay-hint" = { fg = "dark3", bg = "bg_highlight" }
+"ui.virtual.jump-label" = { fg = "bg", bg = "magenta2", modifiers = ["bold"] }
+"ui.selection" = { bg = "magenta3" }
+"ui.selection.primary" = { bg = "visual" }
+"ui.highlight" = { bg = "bg_search" }
+"ui.menu" = { fg = "fg", bg = "bg_dark" }
+"ui.menu.selected" = { fg = "fg", bg = "dark5" }
+"ui.menu.scroll" = { fg = "fg_gutter", bg = "bg_dark" }
+
+# Diagnostic
+"diagnostic" = { underline = { style = "curl" } }
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "orange", style = "curl" } }
+"diagnostic.info" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "dark_green", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+# Diff
+"diff.plus" = { fg = "green" }
+"diff.delta" = { fg = "orange" }
+"diff.minus" = { fg = "red" }
+
+# Git
+"git.added" = { fg = "green" }
+"git.modified" = { fg = "comment" }
+"git.removed" = { fg = "red" }
+"git.delta.moved" = { fg = "cyan" }
+
+# Syntax Highlighting
+"comment" = { fg = "comment", modifiers = ["italic"] }
+"comment.block" = { fg = "comment", modifiers = ["italic"] }
+"comment.line" = { fg = "comment", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "comment", modifiers = ["italic"] }
+
+"constant" = { fg = "red" }
+"constant.builtin" = { fg = "bright_cyan" }
+"constant.builtin.boolean" = { fg = "green" }
+"constant.character" = { fg = "orange" }
+"constant.character.escape" = { fg = "magenta" }
+"constant.numeric" = { fg = "green" }
+"constant.numeric.integer" = { fg = "green" }
+"constant.numeric.float" = { fg = "pink" }
+
+"string" = { fg = "yellow" }
+"string.regexp" = { fg = "cyan" }
+"string.special" = { fg = "yellow" }
+"string.special.symbol" = { fg = "green" }
+"string.special.url" = { fg = "yellow", modifiers = ["italic", "underlined"] }
+
+"character" = { fg = "pink" }
+"character.special" = { fg = "pink" }
+
+"boolean" = { fg = "green" }
+"number" = { fg = "green" }
+"float" = { fg = "pink" }
+
+"variable" = { fg = "cyan" }
+"variable.builtin" = { fg = "red" }
+"variable.parameter" = { fg = "purple" }
+"variable.other.member" = { fg = "purple" }
+
+"label" = { fg = "cyan" }
+
+"punctuation" = { fg = "cyan" }
+"punctuation.bracket" = { fg = "fg_dark" }
+"punctuation.delimiter" = { fg = "cyan" }
+"punctuation.special" = { fg = "cyan" }
+
+"keyword" = { fg = "green" }
+"keyword.control" = { fg = "green" }
+"keyword.control.conditional" = { fg = "purple" }
+"keyword.control.repeat" = { fg = "purple" }
+"keyword.control.import" = { fg = "green" }
+"keyword.control.return" = { fg = "green" }
+"keyword.control.exception" = { fg = "green" }
+"keyword.operator" = { fg = "purple" }
+"keyword.directive" = { fg = "dark_cyan" }
+"keyword.function" = { fg = "magenta" }
+"keyword.storage" = { fg = "purple" }
+"keyword.storage.modifier" = { fg = "purple" }
+"keyword.storage.type" = { fg = "cyan" }
+
+"operator" = { fg = "cyan" }
+
+"function" = { fg = "pink" }
+"function.builtin" = { fg = "cyan" }
+"function.method" = { fg = "purple" }
+"function.macro" = { fg = "purple" }
+"function.special" = { fg = "cyan" }
+
+"constructor" = { fg = "magenta" }
+
+"type" = { fg = "cyan" }
+"type.builtin" = { fg = "cyan", modifiers = ["italic"] }
+"type.enum" = { fg = "cyan" }
+"type.enum.variant" = { fg = "green" }
+
+"property" = { fg = "purple" }
+"attribute" = { fg = "cyan" }
+"attribute.builtin" = { fg = "cyan" }
+
+"namespace" = { fg = "orange" }
+"module" = { fg = "orange" }
+
+"special" = { fg = "cyan" }
+
+"markup.heading" = { fg = "purple", modifiers = ["bold"] }
+"markup.heading.1" = { fg = "cyan", modifiers = ["bold"] }
+"markup.heading.2" = { fg = "yellow", modifiers = ["bold"] }
+"markup.heading.3" = { fg = "purple", modifiers = ["bold"] }
+"markup.heading.4" = { fg = "cyan", modifiers = ["bold"] }
+"markup.heading.5" = { fg = "magenta", modifiers = ["bold"] }
+"markup.heading.6" = { fg = "green", modifiers = ["bold"] }
+"markup.list" = { fg = "cyan" }
+"markup.list.unnumbered" = { fg = "cyan" }
+"markup.list.numbered" = { fg = "orange" }
+"markup.list.checked" = { fg = "purple" }
+"markup.list.unchecked" = { fg = "cyan" }
+"markup.bold" = { fg = "orange", modifiers = ["bold"] }
+"markup.italic" = { fg = "yellow", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link" = { fg = "cyan", modifiers = ["bold"] }
+"markup.link.url" = { fg = "yellow", modifiers = ["italic", "underlined"] }
+"markup.link.label" = { fg = "cyan" }
+"markup.link.text" = { fg = "cyan", modifiers = ["underlined"] }
+"markup.quote" = { fg = "yellow", modifiers = ["italic"] }
+"markup.raw" = { fg = "yellow" }
+"markup.raw.inline" = { fg = "cyan", bg = "terminal_black" }
+"markup.raw.block" = { fg = "cyan" }
+
+"tag" = { fg = "cyan" }
+"tag.builtin" = { fg = "cyan" }
+"tag.attribute" = { fg = "pink" }
+"tag.delimiter" = { fg = "cyan" }
+
+# Error and Warning
+"error" = { fg = "red" }
+"warning" = { fg = "orange" }
+"info" = { fg = "yellow" }
+"hint" = { fg = "dark_green" }
+
+[palette]
+# Background colors (darker palette)
+bg = "#171928"
+bg_dark = "#0f101a"
+bg_highlight = "#1e2033"
+terminal_black = "#2a2e45"
+
+# Foreground colors
+fg = "#d8e6e6"
+fg_dark = "#8e94b8"
+fg_gutter = "#2d3249"
+fg_gutter_light = "#4a5584"
+
+# Color palette (darker)
+dark3 = "#445084"
+comment = "#506299"
+dark5 = "#3d4775"
+bright_cyan = "#2bafcc"
+visual = "#554971"
+bg_visual = "#554971"
+cyan = "#0396b3"
+dark_cyan = "#0c7a94"
+magenta = "#8b75d9"
+magenta2 = "#94407a"
+magenta3 = "#5c2644"
+pink = "#d154a1"
+purple = "#8b75d9"
+orange = "#d4a666"
+yellow = "#ccd663"
+dark_yellow = "#a1a34d"
+green = "#2dcc82"
+bright_green = "#00cc68"
+dark_green = "#299e64"
+red = "#cc5860"
+bright_red = "#cc2935"
+
+# Derived colors
+bg_search = "#506299"

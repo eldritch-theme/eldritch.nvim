@@ -40,6 +40,8 @@ Main Theme repo can be found [here](https://github.com/eldritch-theme/eldritch)
 
 ### Installation
 
+#### Neovim
+
 Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
@@ -51,15 +53,41 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 }
 ```
 
+#### Helix
+
+The Eldritch theme is available for [Helix editor](https://helix-editor.com/) in three variants:
+
+1. Copy the theme file(s) to your Helix themes directory:
+   - Linux/macOS: `~/.config/helix/themes/`
+   - Windows: `%AppData%\helix\themes\`
+
+```bash
+# Example for Linux/macOS
+cp eldritch.toml ~/.config/helix/themes/
+cp eldritch-dark.toml ~/.config/helix/themes/
+cp eldritch-minimal.toml ~/.config/helix/themes/
+```
+
+2. Set the theme in your Helix config (`~/.config/helix/config.toml`):
+
+```toml
+theme = "eldritch"  # or "eldritch-dark" or "eldritch-minimal"
+```
+
+**Available Helix themes:**
+- `eldritch.toml` - Default theme with full color palette
+- `eldritch-dark.toml` - Darker background variant
+- `eldritch-minimal.toml` - Minimal color palette variant
+
 ### Usage
 
-#### Lua
+#### Neovim - Lua
 
 ```lua
 vim.cmd[[colorscheme eldritch]]
 ```
 
-#### [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+#### Neovim - [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 
 ```lua
 -- Lua
@@ -72,7 +100,7 @@ require('lualine').setup {
 }
 ```
 
-#### fzf-lua
+#### Neovim - fzf-lua
 
 If you want transparent background for all of fzf-lua you need to pass the following into your opts or setup of fzf-lua:
 
