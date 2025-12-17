@@ -22,6 +22,7 @@ M.default = {
   cyan = "#04d1f9",
   dark_cyan = "#10A1BD",
   magenta = "#a48cf2",
+  bright_purple = "#ad8cff",
   magenta2 = "#bf4f8e",
   magenta3 = "#722f55",
   pink = "#f265b5",
