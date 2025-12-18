@@ -8,6 +8,9 @@ return {
   blue0 = "#2d3249",
   blue1 = "#2bafcc",
   blue2 = "#0c7a94",
+  blue5 = "#0396b3",  -- Operators, delimiters (use cyan)
+  blue6 = "#2bafcc",  -- Regex strings (use bright_cyan)
+  blue7 = "#2d3249",  -- Subtle backgrounds (use blue0)
   cyan = "#0396b3",
   dark3 = "#445084",
   dark5 = "#3d4775",
