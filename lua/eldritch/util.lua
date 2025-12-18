@@ -2,20 +2,35 @@ local M = {}
 
 M.bg = "#000000"
 M.fg = "#ffffff"
+M.day_brightness = 0.3
+
+local uv = vim.uv or vim.loop
 
 ---@param c  string
-local function hexToRgb(c)
+local function rgb(c)
   c = string.lower(c)
   return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
 end
 
+local me = debug.getinfo(1, "S").source:sub(2)
+me = vim.fn.fnamemodify(me, ":h:h")
+
+function M.mod(modname)
+  if package.loaded[modname] then
+    return package.loaded[modname]
+  end
+  local ret = loadfile(me .. "/" .. modname:gsub("%.", "/") .. ".lua")()
+  package.loaded[modname] = ret
+  return ret
+end
+
 ---@param foreground string foreground color
----@param background string background color
 ---@param alpha number|string number between 0 and 1. 0 results in bg, 1 results in fg
-function M.blend(foreground, background, alpha)
+---@param background string background color
+function M.blend(foreground, alpha, background)
   alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
-  local bg = hexToRgb(background)
-  local fg = hexToRgb(foreground)
+  local bg = rgb(background)
+  local fg = rgb(foreground)
 
   local blendChannel = function(i)
     local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))
@@ -25,75 +40,72 @@ function M.blend(foreground, background, alpha)
   return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
-function M.darken(hex, amount, bg)
-  return M.blend(hex, bg or M.bg, amount)
+function M.blend_bg(hex, amount, bg)
+  return M.blend(hex, amount, bg or M.bg)
 end
+M.darken = M.blend_bg
 
-function M.lighten(hex, amount, fg)
-  return M.blend(hex, fg or M.fg, amount)
+function M.blend_fg(hex, amount, fg)
+  return M.blend(hex, amount, fg or M.fg)
 end
+M.lighten = M.blend_fg
 
-function M.invert_color(color)
-  local hsluv = require("eldritch.hsluv")
-  if color ~= "NONE" then
-    local hsl = hsluv.hex_to_hsluv(color)
-    hsl[3] = 100 - hsl[3]
-    if hsl[3] < 40 then
-      hsl[3] = hsl[3] + (100 - hsl[3]) * M.day_brightness
+---@param color string|Palette
+function M.invert(color)
+  if type(color) == "table" then
+    for key, value in pairs(color) do
+      color[key] = M.invert(value)
     end
-    return hsluv.hsluv_to_hex(hsl)
+  elseif type(color) == "string" then
+    local hsluv = require("eldritch.hsluv")
+    if color ~= "NONE" then
+      local hsl = hsluv.hex_to_hsluv(color)
+      hsl[3] = 100 - hsl[3]
+      if hsl[3] < 40 then
+        hsl[3] = hsl[3] + (100 - hsl[3]) * M.day_brightness
+      end
+      return hsluv.hsluv_to_hex(hsl)
+    end
   end
   return color
 end
 
----@param group string
-function M.highlight(group, hl)
-  if hl.style then
+---@param color string  -- The hex color string to be adjusted
+---@param lightness_amount number? -- The amount to increase lightness by (optional, default: 0.1)
+---@param saturation_amount number? -- The amount to increase saturation by (optional, default: 0.15)
+function M.brighten(color, lightness_amount, saturation_amount)
+  lightness_amount = lightness_amount or 0.05
+  saturation_amount = saturation_amount or 0.2
+  local hsluv = require("eldritch.hsluv")
+
+  -- Convert the hex color to HSLuv
+  local hsl = hsluv.hex_to_hsluv(color)
+
+  -- Increase lightness slightly
+  hsl[3] = math.min(hsl[3] + (lightness_amount * 100), 100)
+
+  -- Increase saturation a bit more to make the color more vivid
+  hsl[2] = math.min(hsl[2] + (saturation_amount * 100), 100)
+
+  -- Convert the HSLuv back to hex and return
+  return hsluv.hsluv_to_hex(hsl)
+end
+
+---@param groups eldritch.Highlights
+---@return table<string, vim.api.keyset.highlight>
+function M.resolve(groups)
+  for _, hl in pairs(groups) do
     if type(hl.style) == "table" then
-      hl = vim.tbl_extend("force", hl, hl.style)
-    elseif hl.style:lower() ~= "none" then
-      -- handle old string style definitions
-      for s in string.gmatch(hl.style, "([^,]+)") do
-        hl[s] = true
+      for k, v in pairs(hl.style) do
+        hl[k] = v
       end
+      hl.style = nil
     end
-    hl.style = nil
   end
-  vim.api.nvim_set_hl(0, group, hl)
+  return groups
 end
 
----@param config Config
-function M.autocmds(config)
-  local group = vim.api.nvim_create_augroup("eldritch", { clear = true })
 
-  vim.api.nvim_create_autocmd("ColorSchemePre", {
-    group = group,
-    callback = function()
-      vim.api.nvim_del_augroup_by_id(group)
-    end,
-  })
-  local function set_whl()
-    local win = vim.api.nvim_get_current_win()
-    local whl = vim.split(vim.wo[win].winhighlight, ",")
-    vim.list_extend(whl, { "Normal:NormalSB", "SignColumn:SignColumnSB" })
-    whl = vim.tbl_filter(function(hl)
-      return hl ~= ""
-    end, whl)
-    vim.opt_local.winhighlight = table.concat(whl, ",")
-  end
-
-  vim.api.nvim_create_autocmd("FileType", {
-    group = group,
-    pattern = table.concat(config.sidebars, ","),
-    callback = set_whl,
-  })
-  if vim.tbl_contains(config.sidebars, "terminal") then
-    vim.api.nvim_create_autocmd("TermOpen", {
-      group = group,
-      callback = set_whl,
-    })
-  end
-end
 
 -- Simple string interpolation.
 --
@@ -109,90 +121,82 @@ function M.template(str, table)
   )
 end
 
-function M.syntax(syntax)
-  for group, colors in pairs(syntax) do
-    M.highlight(group, colors)
+---@param file string
+function M.read(file)
+  local fd = assert(io.open(file, "r"))
+  ---@type string
+  local data = fd:read("*a")
+  fd:close()
+  return data
+end
+
+---@param file string
+---@param contents string
+function M.write(file, contents)
+  vim.fn.mkdir(vim.fn.fnamemodify(file, ":h"), "p")
+  local fd = assert(io.open(file, "w+"))
+  fd:write(contents)
+  fd:close()
+end
+
+M.cache = {}
+
+function M.cache.file(key)
+  return vim.fn.stdpath("cache") .. "/eldritch-" .. key .. ".json"
+end
+
+---@param key string
+function M.cache.read(key)
+  ---@type boolean, eldritch.Cache
+  local ok, ret = pcall(function()
+    return vim.json.decode(M.read(M.cache.file(key)), { luanil = {
+      object = true,
+      array = true,
+    } })
+  end)
+  return ok and ret or nil
+end
+
+---@param key string
+---@param data eldritch.Cache
+function M.cache.write(key, data)
+  pcall(M.write, M.cache.file(key), vim.json.encode(data))
+end
+
+function M.cache.clear()
+  for _, style in ipairs({ "eldritch", "dark", "minimal" }) do
+    uv.fs_unlink(M.cache.file(style))
   end
 end
 
 ---@param colors ColorScheme
 function M.terminal(colors)
   -- dark
-  vim.g.terminal_color_0 = colors.black
-  vim.g.terminal_color_8 = colors.terminal_black
+  vim.g.terminal_color_0 = colors.terminal.black
+  vim.g.terminal_color_8 = colors.terminal.black_bright
 
   -- light
-  vim.g.terminal_color_7 = colors.fg_dark
-  vim.g.terminal_color_15 = colors.fg
+  vim.g.terminal_color_7 = colors.terminal.white
+  vim.g.terminal_color_15 = colors.terminal.white_bright
 
   -- colors
-  vim.g.terminal_color_1 = colors.red
-  vim.g.terminal_color_9 = colors.red
+  vim.g.terminal_color_1 = colors.terminal.red
+  vim.g.terminal_color_9 = colors.terminal.red_bright
 
-  vim.g.terminal_color_2 = colors.green
-  vim.g.terminal_color_10 = colors.green
+  vim.g.terminal_color_2 = colors.terminal.green
+  vim.g.terminal_color_10 = colors.terminal.green_bright
 
-  vim.g.terminal_color_3 = colors.yellow
-  vim.g.terminal_color_11 = colors.yellow
+  vim.g.terminal_color_3 = colors.terminal.yellow
+  vim.g.terminal_color_11 = colors.terminal.yellow_bright
 
-  vim.g.terminal_color_4 = colors.dark_cyan
-  vim.g.terminal_color_12 = colors.dark_cyan
+  vim.g.terminal_color_4 = colors.terminal.blue
+  vim.g.terminal_color_12 = colors.terminal.blue_bright
 
-  vim.g.terminal_color_5 = colors.magenta
-  vim.g.terminal_color_13 = colors.magenta
+  vim.g.terminal_color_5 = colors.terminal.magenta
+  vim.g.terminal_color_13 = colors.terminal.magenta_bright
 
-  vim.g.terminal_color_6 = colors.cyan
-  vim.g.terminal_color_14 = colors.cyan
-end
-
----@param colors ColorScheme
-function M.invert_colors(colors)
-  if type(colors) == "string" then
-    ---@diagnostic disable-next-line: return-type-mismatch
-    return M.invert_color(colors)
-  end
-  for key, value in pairs(colors) do
-    colors[key] = M.invert_colors(value)
-  end
-  return colors
-end
-
----@param hls Highlights
-function M.invert_highlights(hls)
-  for _, hl in pairs(hls) do
-    if hl.fg then
-      hl.fg = M.invert_color(hl.fg)
-    end
-    if hl.bg then
-      hl.bg = M.invert_color(hl.bg)
-    end
-    if hl.sp then
-      hl.sp = M.invert_color(hl.sp)
-    end
-  end
-end
-
----@param theme Theme
-function M.load(theme)
-  -- only needed to clear when not the default colorscheme
-  if vim.g.colors_name then
-    vim.cmd("hi clear")
-  end
-
-  vim.o.termguicolors = true
-
-  M.syntax(theme.highlights)
-
-  -- vim.api.nvim_set_hl_ns(M.ns)
-  if theme.config.terminal_colors then
-    M.terminal(theme.colors)
-  end
-
-  M.autocmds(theme.config)
-
-  vim.defer_fn(function()
-    M.syntax(theme.defer)
-  end, 100)
+  vim.g.terminal_color_6 = colors.terminal.cyan
+  vim.g.terminal_color_14 = colors.terminal.cyan_bright
 end
 
 return M
