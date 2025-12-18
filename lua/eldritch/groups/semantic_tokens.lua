@@ -38,7 +38,7 @@ function M.get(c)
     ["@lsp.type.typeAlias"]                    = "@type.definition",
     ["@lsp.type.typeParameter"]                = "@type",
     ["@lsp.type.unresolvedReference"]          = { undercurl = true, sp = c.error },
-    ["@lsp.type.variable"]                     = {}, -- use treesitter styles for regular variables
+    ["@lsp.type.variable"]                     = "@variable", -- link to treesitter @variable
     ["@lsp.typemod.class.defaultLibrary"]      = "@type.builtin",
     ["@lsp.typemod.enum.defaultLibrary"]       = "@type.builtin",
     ["@lsp.typemod.enumMember.defaultLibrary"] = "@constant.builtin",
