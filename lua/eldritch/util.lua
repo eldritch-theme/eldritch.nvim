@@ -25,8 +25,8 @@ function M.mod(modname)
 end
 
 ---@param foreground string foreground color
----@param background string background color
 ---@param alpha number|string number between 0 and 1. 0 results in bg, 1 results in fg
+---@param background string background color
 function M.blend(foreground, alpha, background)
   alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
   local bg = rgb(background)
