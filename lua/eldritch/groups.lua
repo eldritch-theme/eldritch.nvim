@@ -227,7 +227,7 @@ local function setup(configs)
     ["@lsp.type.selfTypeKeyword"] = { link = "@variable.builtin" },
     ["@lsp.type.string"] = { link = "@string" },
     ["@lsp.type.typeAlias"] = { link = "@type.def" },
-    ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
+    ["@lsp.type.variable"] = { link = "@variable" }, -- use treesitter styles for regular variables
     ["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
     ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
     ["@lsp.typemod.enumMember.defaultLibrary"] = { link = "@constant.builtin" },
