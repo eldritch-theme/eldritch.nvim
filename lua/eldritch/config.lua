@@ -7,7 +7,6 @@ M.version = "1.0.0" -- eldritch version
 ---@field on_highlights fun(highlights: eldritch.Highlights, colors: ColorScheme)
 M.defaults = {
   style = "eldritch", -- The theme comes in three styles, `eldritch` (default), `dark`, and `minimal`
-  light_style = "minimal", -- The theme is used when the background is set to light
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
   styles = {

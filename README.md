@@ -109,7 +109,6 @@ require("eldritch").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
   style = "eldritch", -- The theme comes in three styles: "eldritch" (default), "dark", and "minimal"
-  light_style = "minimal", -- The style used when the background is set to light
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
   styles = {
