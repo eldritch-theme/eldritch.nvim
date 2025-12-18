@@ -59,6 +59,21 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 vim.cmd[[colorscheme eldritch]]
 ```
 
+#### Variants
+
+Eldritch comes in three styles:
+
+```lua
+-- Default style
+vim.cmd[[colorscheme eldritch]]
+
+-- Dark variant (darker background)
+vim.cmd[[colorscheme eldritch-dark]]
+
+-- Minimal variant (less colorful)
+vim.cmd[[colorscheme eldritch-minimal]]
+```
+
 #### [Lualine](https://github.com/nvim-lualine/lualine.nvim)
 
 ```lua
@@ -93,7 +108,8 @@ If you want transparent background for all of fzf-lua you need to pass the follo
 require("eldritch").setup({
   -- your configuration comes here
   -- or leave it empty to use the default settings
-  -- palette = "default", -- This option is deprecated. Use `vim.cmd[[colorscheme eldritch-dark]]` or `vim.cmd[[colorscheme eldritch-minimal]] instead.
+  style = "eldritch", -- The theme comes in three styles: "eldritch" (default), "dark", and "minimal"
+  light_style = "minimal", -- The style used when the background is set to light
   transparent = false, -- Enable this to disable setting the background color
   terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
   styles = {
@@ -107,10 +123,8 @@ require("eldritch").setup({
     sidebars = "dark", -- style for sidebars, see below
     floats = "dark", -- style for floating windows
   },
-  sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-  dim_inactive = false, -- dims inactive windows, transparent must be false for this to work
-  lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
+  dim_inactive = false, -- dims inactive windows
+  lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
 
   --- You can override specific color groups to use other groups or a hex color
   --- function will be called with a ColorScheme table
@@ -122,6 +136,22 @@ require("eldritch").setup({
   ---@param highlights Highlights
   ---@param colors ColorScheme
   on_highlights = function(highlights, colors) end,
+  
+  cache = true, -- When set to true, the theme will be cached for better performance
+  
+  ---@type table<string, boolean|{enabled:boolean}>
+  plugins = {
+    -- enable all plugins when not using lazy.nvim
+    -- set to false to manually enable/disable plugins
+    all = package.loaded.lazy == nil,
+    -- uses your plugin manager to automatically enable needed plugins
+    -- currently only lazy.nvim is supported
+    auto = true,
+    -- add any plugins here that you want to enable
+    -- for all possible plugins, see:
+    --   * https://github.com/eldritch-theme/eldritch.nvim/tree/main/lua/eldritch/groups
+    -- telescope = true,
+  },
 })
 ```
 
