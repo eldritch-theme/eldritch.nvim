@@ -1,3 +1,4 @@
+-- Darker variant color palette
 ---@type Palette
 return {
   none = "NONE",
@@ -32,6 +33,25 @@ return {
   dark_green = "#299e64",
   red = "#cc5860",
   bright_red = "#cc2935",
+  
+  -- ANSI colors (darker variant)
+  ansi_black = "#0f101a",
+  ansi_red = "#cc5860",
+  ansi_green = "#2dcc82",
+  ansi_yellow = "#ccd663",
+  ansi_blue = "#8b75d9",
+  ansi_magenta = "#d154a1",
+  ansi_cyan = "#0396b3",
+  ansi_white = "#d8e6e6",
+  ansi_bright_black = "#2a2e45",
+  ansi_bright_red = "#e06060",
+  ansi_bright_green = "#3de690",
+  ansi_bright_yellow = "#dce873",
+  ansi_bright_blue = "#9b87e3",
+  ansi_bright_magenta = "#e066b5",
+  ansi_bright_cyan = "#2bafcc",
+  ansi_bright_white = "#f0f8f8",
+  
   git = {
     change = "#506299",
     add = "#2dcc82",

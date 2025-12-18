@@ -1,3 +1,4 @@
+-- Minimal variant color palette (less colorful)
 ---@type Palette
 return {
   none = "NONE",
@@ -32,6 +33,25 @@ return {
   dark_green = "#e0e0e0",
   red = "#f16c75",
   bright_red = "#fafafa",
+  
+  -- ANSI colors (minimal variant uses grays for most colors)
+  ansi_black = "#21222C",
+  ansi_red = "#f16c75",
+  ansi_green = "#37f499",
+  ansi_yellow = "#e0e0e0",
+  ansi_blue = "#a48cf2",
+  ansi_magenta = "#e0e0e0",
+  ansi_cyan = "#04d1f9",
+  ansi_white = "#ebfafa",
+  ansi_bright_black = "#323449",
+  ansi_bright_red = "#fafafa",
+  ansi_bright_green = "#fafafa",
+  ansi_bright_yellow = "#fafafa",
+  ansi_bright_blue = "#fafafa",
+  ansi_bright_magenta = "#fafafa",
+  ansi_bright_cyan = "#fafafa",
+  ansi_bright_white = "#FFFFFF",
+  
   git = {
     change = "#e0e0e0",
     add = "#37f499",

@@ -37,6 +37,7 @@ function M.get(c, opts)
     MatchParen                  = { fg = c.orange, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg                     = { fg = c.fg_dark, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea                     = { fg = c.fg_dark }, -- Area for messages and cmdline
+    MsgSeparator                = { fg = c.border, bg = c.bg_statusline }, -- Separator for scrolled messages
     MoreMsg                     = { fg = c.blue }, -- |more-prompt|
     NonText                     = { fg = c.dark3 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal                      = { fg = c.fg, bg = opts.transparent and c.none or c.bg }, -- normal text
@@ -76,19 +77,34 @@ function M.get(c, opts)
     WinBarNC                    = "StatusLineNC", -- window bar in inactive windows
 
     Bold                        = { bold = true, fg = c.fg }, -- (preferred) any bold text
+    Boolean                     = { fg = c.green }, -- a boolean constant: TRUE, false
     Character                   = { fg = c.orange }, --  a character constant: 'c', '\n'
     Constant                    = { fg = c.red }, -- (preferred) any constant
     Debug                       = { fg = c.orange }, --    debugging statements
     Delimiter                   =  "Special", --  character that needs attention
     Error                       = { fg = c.error }, -- (preferred) any erroneous construct
+    Exception                   = { fg = c.green }, -- try, catch, throw
+    Float                       = { fg = c.pink }, -- a floating point constant: 2.3e10
     Function                    = { fg = c.pink, style = opts.styles.functions }, -- function name (also: methods for classes)
     Identifier                  = { fg = c.magenta, style = opts.styles.variables }, -- (preferred) any variable name
     Italic                      = { italic = true, fg = c.fg }, -- (preferred) any italic text
     Keyword                     = { fg = c.dark_cyan, style = opts.styles.keywords }, --  any other keyword
+    Number                      = { fg = c.green }, -- a number constant: 234, 0xff
     Operator                    = { fg = c.cyan }, -- "sizeof", "+", "*", etc.
     PreProc                     = { fg = c.dark_cyan }, -- (preferred) generic Preprocessor
     Special                     = { fg = c.cyan }, -- (preferred) any special symbol
+    SpecialChar                 = { fg = c.cyan }, -- special character in a constant
     Statement                   = { fg = c.magenta }, -- (preferred) any statement
+    Conditional                 = { fg = c.purple }, -- if, then, else, endif, switch, etc.
+    Repeat                      = { fg = c.purple }, -- for, do, while, etc.
+    Label                       = { fg = c.cyan }, -- case, default, etc.
+    Include                     = { fg = c.purple }, -- preprocessor #include
+    Define                      = { fg = c.cyan }, -- preprocessor #define
+    Macro                       = { fg = c.purple }, -- same as Define
+    PreCondit                   = { fg = c.dark_cyan }, -- preprocessor #if, #else, #endif, etc.
+    StorageClass                = { fg = c.purple }, -- static, register, volatile, etc.
+    Structure                   = { fg = c.green }, -- struct, union, enum, etc.
+    Typedef                     = { fg = c.yellow }, -- A typedef
     String                      = { fg = c.yellow }, --   a string constant: "this is a string"
     Todo                        = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     Type                        = { fg = c.cyan }, -- (preferred) int, long, char, etc.
