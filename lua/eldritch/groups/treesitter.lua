@@ -60,7 +60,7 @@ function M.get(c, opts)
     ["@variable.builtin"]           = { fg = c.green },
     ["@variable.parameter"]         = { fg = c.orange },
     ["@variable.parameter.reference"] = { fg = c.orange },
-    ["@variable.parameter.builtin"] = { fg = c.orange }, -- builtin parameters use orange like regular parameters
+    ["@variable.parameter.builtin"] = { fg = c.orange }, -- builtin parameters
     ["@variable.member"]            = { fg = c.orange },
     ["@property"]                   = { fg = c.bright_green },
     
