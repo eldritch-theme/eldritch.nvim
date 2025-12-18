@@ -97,6 +97,7 @@ function M.setup(colors, opts)
     kinds = true,
     semantic_tokens = true,
     treesitter = true,
+    languages = true,
   }
 
   if opts.plugins.all then

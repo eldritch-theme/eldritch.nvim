@@ -76,23 +76,24 @@ function M.setup(opts)
 
   -- stylua: ignore
   --- @class TerminalColors
+  --- ANSI colors from SPEC.md section 1.1.2
   colors.terminal = {
-    black          = colors.black,
-    black_bright   = colors.terminal_black,
-    red            = colors.red,
-    red_bright     = Util.brighten(colors.red),
-    green          = colors.green,
-    green_bright   = Util.brighten(colors.green),
-    yellow         = colors.yellow,
-    yellow_bright  = Util.brighten(colors.yellow),
-    blue           = colors.cyan,
-    blue_bright    = Util.brighten(colors.cyan),
-    magenta        = colors.magenta,
-    magenta_bright = Util.brighten(colors.magenta),
-    cyan           = colors.cyan,
-    cyan_bright    = Util.brighten(colors.cyan),
-    white          = colors.fg_dark,
-    white_bright   = colors.fg,
+    black          = colors.ansi_black,
+    black_bright   = colors.ansi_bright_black,
+    red            = colors.ansi_red,
+    red_bright     = colors.ansi_bright_red,
+    green          = colors.ansi_green,
+    green_bright   = colors.ansi_bright_green,
+    yellow         = colors.ansi_yellow,
+    yellow_bright  = colors.ansi_bright_yellow,
+    blue           = colors.ansi_blue,
+    blue_bright    = colors.ansi_bright_blue,
+    magenta        = colors.ansi_magenta,
+    magenta_bright = colors.ansi_bright_magenta,
+    cyan           = colors.ansi_cyan,
+    cyan_bright    = colors.ansi_bright_cyan,
+    white          = colors.ansi_white,
+    white_bright   = colors.ansi_bright_white,
   }
 
   opts.on_colors(colors)
