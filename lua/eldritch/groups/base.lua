@@ -76,22 +76,22 @@ function M.get(c, opts)
     WinBarNC                    = "StatusLineNC", -- window bar in inactive windows
 
     Bold                        = { bold = true, fg = c.fg }, -- (preferred) any bold text
-    Character                   = { fg = c.green }, --  a character constant: 'c', '\n'
-    Constant                    = { fg = c.orange }, -- (preferred) any constant
+    Character                   = { fg = c.orange }, --  a character constant: 'c', '\n'
+    Constant                    = { fg = c.red }, -- (preferred) any constant
     Debug                       = { fg = c.orange }, --    debugging statements
     Delimiter                   =  "Special", --  character that needs attention
     Error                       = { fg = c.error }, -- (preferred) any erroneous construct
-    Function                    = { fg = c.blue, style = opts.styles.functions }, -- function name (also: methods for classes)
+    Function                    = { fg = c.pink, style = opts.styles.functions }, -- function name (also: methods for classes)
     Identifier                  = { fg = c.magenta, style = opts.styles.variables }, -- (preferred) any variable name
     Italic                      = { italic = true, fg = c.fg }, -- (preferred) any italic text
-    Keyword                     = { fg = c.cyan, style = opts.styles.keywords }, --  any other keyword
-    Operator                    = { fg = c.blue5 }, -- "sizeof", "+", "*", etc.
-    PreProc                     = { fg = c.cyan }, -- (preferred) generic Preprocessor
-    Special                     = { fg = c.blue1 }, -- (preferred) any special symbol
+    Keyword                     = { fg = c.dark_cyan, style = opts.styles.keywords }, --  any other keyword
+    Operator                    = { fg = c.cyan }, -- "sizeof", "+", "*", etc.
+    PreProc                     = { fg = c.dark_cyan }, -- (preferred) generic Preprocessor
+    Special                     = { fg = c.cyan }, -- (preferred) any special symbol
     Statement                   = { fg = c.magenta }, -- (preferred) any statement
-    String                      = { fg = c.green }, --   a string constant: "this is a string"
+    String                      = { fg = c.yellow }, --   a string constant: "this is a string"
     Todo                        = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    Type                        = { fg = c.blue1 }, -- (preferred) int, long, char, etc.
+    Type                        = { fg = c.cyan }, -- (preferred) int, long, char, etc.
     Underlined                  = { underline = true }, -- (preferred) text that stands out, HTML links
     debugBreakpoint             = { bg = Util.blend_bg(c.info, 0.1), fg = c.info }, -- used for breakpoint colors in terminal-debug
     debugPC                     = { bg = c.bg_sidebar }, -- used for highlighting the current line in terminal-debug
