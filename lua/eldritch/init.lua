@@ -1,37 +1,26 @@
-local util = require("eldritch.util")
-local theme = require("eldritch.theme")
 local config = require("eldritch.config")
 
 local M = {}
+---@type {light?: string, dark?: string}
+M.styles = {}
 
----@param arg string|table|nil
-function M.load(arg)
-  local opts_to_pass = {}
-  local current_colorscheme_name = vim.g.colors_name
+---@param opts? eldritch.Config
+function M.load(opts)
+  opts = require("eldritch.config").extend(opts)
+  local bg = vim.o.background
+  local style_bg = opts.style == "minimal" and "light" or "dark"
 
-  if type(arg) == "table" then
-    -- If arg is a table, it's the full config options
-    opts_to_pass = arg
-  elseif type(arg) == "string" then
-    -- If arg is a string, it's a palette name
-    opts_to_pass.palette = arg
-  else
-    -- If arg is nil (i.e., eldritch colorscheme is loaded), use the palette from initial_options
-    opts_to_pass.palette = config.initial_options.palette or "default"
+  if bg ~= style_bg then
+    if vim.g.colors_name == "eldritch-" .. opts.style then
+      opts.style = bg == "light" and (M.styles.light or "minimal") or (M.styles.dark or "eldritch")
+    else
+      vim.o.background = style_bg
+    end
   end
-  -- If arg is nil, opts_to_pass remains empty, and config.extend will use defaults.
-
-  -- Always extend the configuration with a table
-  config.extend(opts_to_pass)
-
-  util.load(theme.setup())
-
-  vim.g.colors_name = current_colorscheme_name
+  M.styles[vim.o.background] = opts.style
+  return require("eldritch.theme").setup(opts)
 end
 
 M.setup = config.setup
-
--- keep for backward compatibility
-M.colorscheme = M.load
 
 return M
