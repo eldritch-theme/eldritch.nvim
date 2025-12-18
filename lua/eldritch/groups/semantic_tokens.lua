@@ -40,7 +40,7 @@ function M.get(c)
     ["@lsp.type.selfTypeKeyword"]              = { link = "@variable.builtin" },
     ["@lsp.type.string"]                       = { link = "@string" },
     ["@lsp.type.typeAlias"]                    = { link = "@type.def" },
-    ["@lsp.type.variable"]                     = {}, -- use treesitter styles for regular variables per SPEC.md
+    ["@lsp.type.variable"]                     = {}, -- use treesitter @variable styles instead of overriding per SPEC.md
     
     -- LSP type modifiers from SPEC.md
     ["@lsp.typemod.class.defaultLibrary"]      = { link = "@type.builtin" },

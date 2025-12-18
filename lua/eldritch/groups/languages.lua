@@ -52,7 +52,7 @@ function M.get(c, opts)
     diffAdded   = { fg = c.pink },
     diffRemoved = { fg = c.red },
     diffFileId  = { fg = c.yellow, bold = true, reverse = true },
-    diffFile    = { fg = c.dark3 }, -- nontext color
+    diffFile    = { fg = c.dark3 }, -- uses dark3 color for non-essential diff file info
     diffNewFile = { fg = c.pink },
     diffOldFile = { fg = c.red },
   }
