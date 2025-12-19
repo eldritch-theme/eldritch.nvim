@@ -30,7 +30,7 @@ function M.get(c, opts)
     -- Dashboard
     SnacksDashboardDesc = { fg = c.cyan },
     SnacksDashboardFooter = { fg = c.blue1 },
-    SnacksDashboardHeader = { fg = c.blue },
+    SnacksDashboardHeader = { fg = c.green },
     SnacksDashboardIcon = { fg = c.blue1 },
     SnacksDashboardKey = { fg = c.orange },
     SnacksDashboardSpecial = { fg = c.purple },
