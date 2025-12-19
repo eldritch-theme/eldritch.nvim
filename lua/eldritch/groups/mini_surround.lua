@@ -4,7 +4,6 @@ M.url = "https://github.com/echasnovski/mini.surround"
 
 ---@type eldritch.HighlightsFn
 function M.get(c)
-  -- stylua: ignore
   return {
     MiniSurround = { bg = c.orange, fg = c.black },
   }

@@ -4,16 +4,15 @@ M.url = "https://github.com/HiPhish/rainbow-delimiters.nvim"
 
 ---@type eldritch.HighlightsFn
 function M.get(c, opts)
-  -- stylua: ignore
   return {
     -- rainbow-delimiters
-    RainbowDelimiterRed    = { fg = c.red },
+    RainbowDelimiterRed = { fg = c.red },
     RainbowDelimiterOrange = { fg = c.orange },
     RainbowDelimiterYellow = { fg = c.yellow },
-    RainbowDelimiterGreen  = { fg = c.green },
-    RainbowDelimiterBlue   = { fg = c.blue },
+    RainbowDelimiterGreen = { fg = c.green },
+    RainbowDelimiterBlue = { fg = c.blue },
     RainbowDelimiterViolet = { fg = c.purple },
-    RainbowDelimiterCyan   = { fg = c.cyan },
+    RainbowDelimiterCyan = { fg = c.cyan },
   }
 end
 

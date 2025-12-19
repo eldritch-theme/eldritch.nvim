@@ -43,15 +43,15 @@ return {
     delete = "#f16c75",
   },
   -- Derived color variants for compatibility
-  blue = "#04d1f9",       -- same as cyan
-  blue0 = "#3b4261",      -- same as fg_gutter (darkest blue tone)
-  blue1 = "#39DDFD",      -- same as bright_cyan
-  blue2 = "#10A1BD",      -- same as dark_cyan
-  blue5 = "#04d1f9",      -- same as cyan (for operators/delimiters)
-  blue6 = "#39DDFD",      -- same as bright_cyan (for regex)
-  blue7 = "#3b4261",      -- same as fg_gutter (for subtle backgrounds)
-  green1 = "#00FA82",     -- same as bright_green
-  green2 = "#33C57F",     -- same as dark_green
-  red1 = "#f0313e",       -- same as bright_red
-  teal = "#00FA82",       -- same as bright_green
+  blue = "#04d1f9", -- same as cyan
+  blue0 = "#3b4261", -- same as fg_gutter (darkest blue tone)
+  blue1 = "#39DDFD", -- same as bright_cyan
+  blue2 = "#10A1BD", -- same as dark_cyan
+  blue5 = "#04d1f9", -- same as cyan (for operators/delimiters)
+  blue6 = "#39DDFD", -- same as bright_cyan (for regex)
+  blue7 = "#3b4261", -- same as fg_gutter (for subtle backgrounds)
+  green1 = "#00FA82", -- same as bright_green
+  green2 = "#33C57F", -- same as dark_green
+  red1 = "#f0313e", -- same as bright_red
+  teal = "#00FA82", -- same as bright_green
 }

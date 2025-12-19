@@ -4,9 +4,8 @@ M.url = "https://github.com/echasnovski/mini.animate"
 
 ---@type eldritch.HighlightsFn
 function M.get(c)
-  -- stylua: ignore
   return {
-    MiniAnimateCursor      = { reverse = true, nocombine = true },
+    MiniAnimateCursor = { reverse = true, nocombine = true },
     MiniAnimateNormalFloat = "NormalFloat",
   }
 end

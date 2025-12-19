@@ -6,7 +6,6 @@ M.url = "https://github.com/phaazon/hop.nvim"
 
 ---@type eldritch.HighlightsFn
 function M.get(c, opts)
-  -- stylua: ignore
   return {
     HopNextKey = { fg = c.magenta2, bold = true },
     HopNextKey1 = { fg = c.blue2, bold = true },

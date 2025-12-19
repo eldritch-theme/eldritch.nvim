@@ -4,7 +4,6 @@ M.url = "https://github.com/vimwiki/vimwiki"
 
 ---@type eldritch.HighlightsFn
 function M.get(c, opts)
-  -- stylua: ignore
   local ret = {
     VimwikiLink = { fg = c.blue, bg = c.none },
     VimwikiHeaderChar = { fg = c.yellow, bg = c.none },

@@ -36,7 +36,7 @@ function M.setup(opts)
 
   colors.git.ignore = colors.dark3
   colors.black = Util.blend_bg(colors.bg, 0.8, "#000000")
-  colors.border_highlight = Util.blend_bg(colors.blue, 0.8)
+  colors.border_highlight = Util.blend_bg(colors.green, 0.8)
   colors.border = colors.black
 
   -- Popups and statusline always get a dark background
@@ -74,25 +74,24 @@ function M.setup(opts)
     colors.red,
   }
 
-  -- stylua: ignore
   --- @class TerminalColors
   colors.terminal = {
-    black          = colors.black,
-    black_bright   = colors.terminal_black,
-    red            = colors.red,
-    red_bright     = Util.brighten(colors.red),
-    green          = colors.green,
-    green_bright   = Util.brighten(colors.green),
-    yellow         = colors.yellow,
-    yellow_bright  = Util.brighten(colors.yellow),
-    blue           = colors.cyan,
-    blue_bright    = Util.brighten(colors.cyan),
-    magenta        = colors.magenta,
+    black = colors.black,
+    black_bright = colors.terminal_black,
+    red = colors.red,
+    red_bright = Util.brighten(colors.red),
+    green = colors.green,
+    green_bright = Util.brighten(colors.green),
+    yellow = colors.yellow,
+    yellow_bright = Util.brighten(colors.yellow),
+    blue = colors.cyan,
+    blue_bright = Util.brighten(colors.cyan),
+    magenta = colors.magenta,
     magenta_bright = Util.brighten(colors.magenta),
-    cyan           = colors.cyan,
-    cyan_bright    = Util.brighten(colors.cyan),
-    white          = colors.fg_dark,
-    white_bright   = colors.fg,
+    cyan = colors.cyan,
+    cyan_bright = Util.brighten(colors.cyan),
+    white = colors.fg_dark,
+    white_bright = colors.fg,
   }
 
   opts.on_colors(colors)

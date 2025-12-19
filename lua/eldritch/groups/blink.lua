@@ -14,7 +14,7 @@ function M.get(c, opts)
     BlinkCmpKindDefault         = { fg = c.fg_dark, bg          = c.none },
     BlinkCmpKindSupermaven      = { fg = c.teal, bg             = c.none },
     BlinkCmpKindTabNine         = { fg = c.teal, bg             = c.none },
-    BlinkCmpLabel               = { fg = c.fg, bg               = c.none },
+    BlinkCmpLabel               = { fg = c.comment, bg               = c.none },
     BlinkCmpLabelDeprecated     = { fg = c.fg_gutter, bg        = c.none, strikethrough = true },
     BlinkCmpLabelMatch          = { fg = c.blue1, bg            = c.none },
     BlinkCmpMenu                = { fg = c.fg, bg               = c.bg_float },

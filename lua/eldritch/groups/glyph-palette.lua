@@ -4,7 +4,6 @@ M.url = "https://github.com/lambdalisue/glyph-palette.vim"
 
 ---@type eldritch.HighlightsFn
 function M.get(c)
-  -- stylua: ignore
   return {
     GlyphPalette1 = { fg = c.red1 },
     GlyphPalette2 = { fg = c.green },

@@ -4,12 +4,11 @@ M.url = "https://github.com/echasnovski/mini.map"
 
 ---@type eldritch.HighlightsFn
 function M.get(c)
-  -- stylua: ignore
   return {
-    MiniMapNormal      = "NormalFloat",
+    MiniMapNormal = "NormalFloat",
     MiniMapSymbolCount = "Special",
-    MiniMapSymbolLine  = "Title",
-    MiniMapSymbolView  = "Delimiter",
+    MiniMapSymbolLine = "Title",
+    MiniMapSymbolView = "Delimiter",
   }
 end
 
