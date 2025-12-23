@@ -79,12 +79,12 @@ local function setup(configs)
 
     Conceal = { fg = colors.comment },
     CursorColumn = { bg = colors.black },
-    CursorLine = { bg = colors.selection },
-    ColorColumn = { bg = colors.selection },
+    CursorLine = { bg = colors.bg_visual },
+    ColorColumn = { bg = colors.bg_visual },
 
-    StatusLine = { fg = colors.white, bg = colors.black },
+    StatusLine = { fg = colors.fg, bg = colors.black },
     StatusLineNC = { fg = colors.comment },
-    StatusLineTerm = { fg = colors.white, bg = colors.black },
+    StatusLineTerm = { fg = colors.fg, bg = colors.black },
     StatusLineTermNC = { fg = colors.comment },
 
     Directory = { fg = colors.cyan },
@@ -102,15 +102,15 @@ local function setup(configs)
     IncSearch = { fg = colors.orange, bg = colors.comment },
     LineNr = { fg = colors.comment },
     MatchParen = { fg = colors.fg, underline = true },
-    NonText = { fg = colors.nontext },
-    Pmenu = { fg = colors.white, bg = colors.menu },
-    PmenuSel = { fg = colors.white, bg = colors.selection },
+    NonText = { fg = colors.comment },
+    Pmenu = { fg = colors.fg, bg = colors.fg_gutter },
+    PmenuSel = { fg = colors.fg, bg = colors.bg_visual },
     PmenuSbar = { bg = colors.bg },
-    PmenuThumb = { bg = colors.selection },
+    PmenuThumb = { bg = colors.bg_visual },
 
     Question = { fg = colors.green },
     QuickFixLine = { fg = colors.black, bg = colors.yellow },
-    SpecialKey = { fg = colors.nontext },
+    SpecialKey = { fg = colors.fg_dark },
 
     SpellBad = { fg = colors.bright_red, underline = true },
     SpellCap = { fg = colors.yellow },
@@ -118,13 +118,13 @@ local function setup(configs)
     SpellRare = { fg = colors.yellow },
 
     TabLine = { fg = colors.comment },
-    TabLineSel = { fg = colors.white },
+    TabLineSel = { fg = colors.fg },
     TabLineFill = { bg = colors.bg },
-    Terminal = { fg = colors.white, bg = colors.black },
+    Terminal = { fg = colors.fg, bg = colors.black },
     Visual = { bg = colors.visual },
     VisualNOS = { fg = colors.visual },
     WarningMsg = { fg = colors.yellow },
-    WildMenu = { fg = colors.black, bg = colors.white },
+    WildMenu = { fg = colors.black, bg = colors.fg },
 
     EndOfBuffer = endOfBuffer,
 
@@ -171,7 +171,7 @@ local function setup(configs)
     ["@keyword.operator"] = { fg = colors.purple },
     ["@operator"] = { fg = colors.purple },
     ["@keyword.exception"] = { fg = colors.green },
-    ["@type"] = { fg = colors.bright_purple },
+    ["@type"] = { fg = colors.purple },
     ["@type.builtin"] = { fg = colors.cyan, italic = true },
     ["@type.qualifier"] = { fg = colors.purple },
     ["@type.def"] = { fg = colors.yellow },
@@ -262,7 +262,7 @@ local function setup(configs)
     htmlTag = { fg = colors.cyan },
     htmlTagN = { fg = colors.cyan },
     htmlTagName = { fg = colors.cyan },
-    htmlTitle = { fg = colors.white },
+    htmlTitle = { fg = colors.fg },
 
     -- Markdown
     markdownBlockquote = { fg = colors.yellow, italic = true },
@@ -292,11 +292,11 @@ local function setup(configs)
     diffAdded = { fg = colors.pink },
     diffRemoved = { fg = colors.red },
     diffFileId = { fg = colors.yellow, bold = true, reverse = true },
-    diffFile = { fg = colors.nontext },
+    diffFile = { fg = colors.fg_dark },
     diffNewFile = { fg = colors.pink },
     diffOldFile = { fg = colors.red },
 
-    debugPc = { bg = colors.menu },
+    debugPc = { bg = colors.fg_gutter },
     debugBreakpoint = { fg = colors.red, reverse = true },
 
     -- Git Signs
@@ -306,14 +306,14 @@ local function setup(configs)
     GitSignsAddLn = { fg = colors.black, bg = colors.bright_cyan },
     GitSignsChangeLn = { fg = colors.black, bg = colors.cyan },
     GitSignsDeleteLn = { fg = colors.black, bg = colors.bright_red },
-    GitSignsCurrentLineBlame = { fg = colors.white },
+    GitSignsCurrentLineBlame = { fg = colors.fg },
 
     -- Telescope
     TelescopePromptBorder = { fg = colors.cyan },
     TelescopeResultsBorder = { fg = colors.green },
     TelescopePreviewBorder = { fg = colors.green },
-    TelescopeSelection = { fg = colors.white, bg = colors.selection },
-    TelescopeMultiSelection = { fg = colors.green, bg = colors.selection },
+    TelescopeSelection = { fg = colors.fg, bg = colors.bg_visual },
+    TelescopeMultiSelection = { fg = colors.green, bg = colors.bg_visual },
     TelescopeNormal = { fg = colors.fg, bg = configs.transparent and "NONE" or colors.bg },
     TelescopeMatching = { fg = colors.pink },
     TelescopePromptPrefix = { fg = colors.green },
@@ -322,7 +322,7 @@ local function setup(configs)
     TelescopeResultsDiffAdd = { fg = colors.pink },
 
     -- Flash
-    FlashLabel = { bg = colors.red, fg = colors.bright_white },
+    FlashLabel = { bg = colors.red, fg = colors.fg },
 
     -- Oil-Git
     OilGitAdded = { fg = colors.green },
@@ -332,32 +332,32 @@ local function setup(configs)
     OilGitIgnored = { fg = colors.comment },
 
     -- NvimTree
-    NvimTreeNormal = { fg = colors.fg, bg = colors.menu },
+    NvimTreeNormal = { fg = colors.fg, bg = colors.fg_gutter },
     NvimTreeVertSplit = { fg = colors.bg, bg = colors.bg },
     NvimTreeRootFolder = { fg = colors.fg, bold = true },
     NvimTreeGitDirty = { fg = colors.yellow },
     NvimTreeGitNew = { fg = colors.bright_cyan },
     NvimTreeImageFile = { fg = colors.purple },
     NvimTreeFolderIcon = { fg = colors.green },
-    NvimTreeIndentMarker = { fg = colors.nontext },
+    NvimTreeIndentMarker = { fg = colors.fg_dark },
     NvimTreeEmptyFolderName = { fg = colors.comment },
     NvimTreeFolderName = { fg = colors.fg },
     NvimTreeSpecialFile = { fg = colors.purple, underline = true },
     NvimTreeOpenedFolderName = { fg = colors.fg },
-    NvimTreeCursorLine = { bg = colors.selection },
-    NvimTreeIn = { bg = colors.selection },
+    NvimTreeCursorLine = { bg = colors.bg_visual },
+    NvimTreeIn = { bg = colors.bg_visual },
 
     NvimTreeEndOfBuffer = endOfBuffer,
 
     -- NeoTree
-    NeoTreeNormal = { fg = colors.fg, bg = colors.menu },
-    NeoTreeNormalNC = { fg = colors.fg, bg = colors.menu },
+    NeoTreeNormal = { fg = colors.fg, bg = colors.fg_gutter },
+    NeoTreeNormalNC = { fg = colors.fg, bg = colors.fg_gutter },
     NeoTreeDirectoryName = { fg = colors.fg },
-    NeoTreeGitUnstaged = { fg = colors.bright_magenta },
-    NeoTreeGitModified = { fg = colors.bright_magenta },
+    NeoTreeGitUnstaged = { fg = colors.magenta2 },
+    NeoTreeGitModified = { fg = colors.magenta2 },
     NeoTreeGitUntracked = { fg = colors.bright_cyan },
     NeoTreeDirectoryIcon = { fg = colors.green },
-    NeoTreeIndentMarker = { fg = colors.nontext },
+    NeoTreeIndentMarker = { fg = colors.fg_dark },
     NeoTreeDotfile = { fg = colors.comment },
 
     -- Bufferline
@@ -419,28 +419,28 @@ local function setup(configs)
     IndentBlanklineContextChar = { fg = colors.bright_red, nocombine = true },
 
     -- Nvim compe
-    CmpItemAbbrDeprecated = { fg = colors.white, bg = colors.bg },
+    CmpItemAbbrDeprecated = { fg = colors.fg, bg = colors.bg },
     CmpItemAbbrMatch = { fg = colors.cyan, bg = colors.bg },
 
     -- barbar
     BufferVisibleTarget = { fg = colors.red },
-    BufferTabpages = { fg = colors.nontext, bg = colors.black, bold = true },
-    BufferTabpageFill = { fg = colors.nontext, bg = colors.black },
+    BufferTabpages = { fg = colors.fg_dark, bg = colors.black, bold = true },
+    BufferTabpageFill = { fg = colors.fg_dark, bg = colors.black },
     BufferCurrentSign = { fg = colors.green },
     BufferCurrentTarget = { fg = colors.red },
     BufferInactive = { fg = colors.comment, bg = colors.black, italic = true },
-    BufferInactiveIndex = { fg = colors.nontext, bg = colors.black, italic = true },
+    BufferInactiveIndex = { fg = colors.fg_dark, bg = colors.black, italic = true },
     BufferInactiveMod = { fg = colors.yellow, bg = colors.black, italic = true },
-    BufferInactiveSign = { fg = colors.nontext, bg = colors.black, italic = true },
+    BufferInactiveSign = { fg = colors.fg_dark, bg = colors.black, italic = true },
     BufferInactiveTarget = { fg = colors.red, bg = colors.black, bold = true },
 
     -- Compe
-    CompeDocumentation = { link = "Pmenu" },
-    CompeDocumentationBorder = { link = "Pmenu" },
+    CompeDocumentation = { link = "Pfg_gutter" },
+    CompeDocumentationBorder = { link = "Pfg_gutter" },
 
     -- Cmp
-    CmpItemAbbr = { fg = colors.white, bg = colors.bg },
-    CmpItemKind = { fg = colors.white, bg = colors.bg },
+    CmpItemAbbr = { fg = colors.fg, bg = colors.bg },
+    CmpItemKind = { fg = colors.fg, bg = colors.bg },
     CmpItemKindMethod = { link = "@function.method" },
     CmpItemKindText = { link = "@markup" },
     CmpItemKindFunction = { link = "@function" },
@@ -543,23 +543,23 @@ local function setup(configs)
     DapUIStepInto = { fg = colors.cyan },
     DapUIStepOut = { fg = colors.cyan },
     DapUIStepBack = { fg = colors.cyan },
-    DapUIType = { fg = colors.bright_blue },
-    DapUIScope = { fg = colors.bright_purple },
-    DapUIModifiedValue = { fg = colors.bright_purple, bold = true },
-    DapUIDecoration = { fg = colors.bright_purple },
+    DapUIType = { fg = colors.cyan },
+    DapUIScope = { fg = colors.purple },
+    DapUIModifiedValue = { fg = colors.purple, bold = true },
+    DapUIDecoration = { fg = colors.purple },
     DapUIThread = { fg = colors.bright_cyan },
-    DapUIStoppedThread = { fg = colors.bright_purple },
-    DapUISource = { fg = colors.bright_blue },
-    DapUILineNumber = { fg = colors.bright_purple },
+    DapUIStoppedThread = { fg = colors.purple },
+    DapUISource = { fg = colors.cyan },
+    DapUILineNumber = { fg = colors.purple },
     DapUIFloatBorder = { fg = colors.green },
     DapUIWatchesEmpty = { fg = colors.purple },
     DapUIWatchesValue = { fg = colors.bright_cyan },
     DapUIWatchesError = { fg = colors.purple },
-    DapUIBreakpointsPath = { fg = colors.bright_purple },
+    DapUIBreakpointsPath = { fg = colors.purple },
     DapUIBreakpointsInfo = { fg = colors.bright_cyan },
     DapUIBreakpointsCurrentLine = { fg = colors.bright_cyan, bold = true },
     DapStoppedLine = { default = true, link = "Visual" },
-    DapUIWinSelect = { fg = colors.bright_purple, bold = true },
+    DapUIWinSelect = { fg = colors.purple, bold = true },
 
     -- Notify
     NotifyInfoIcon = { fg = colors.pink },
