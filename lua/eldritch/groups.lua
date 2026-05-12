@@ -103,10 +103,10 @@ local function setup(configs)
     LineNr = { fg = colors.comment },
     MatchParen = { fg = colors.fg, underline = true },
     NonText = { fg = colors.comment },
-    Pmenu = { fg = colors.fg, bg = colors.fg_gutter },
-    PmenuSel = { fg = colors.fg, bg = colors.bg_visual },
-    PmenuSbar = { bg = colors.bg },
-    PmenuThumb = { bg = colors.bg_visual },
+    Pmenu = { bg = colors.bg, fg = colors.fg },
+    PmenuSel = { bg = colors.cyan, fg = colors.bg },
+    PmenuSbar = { bg = colors.bg_highlight },
+    PmenuThumb = { bg = colors.green },
 
     Question = { fg = colors.green },
     QuickFixLine = { fg = colors.black, bg = colors.yellow },
@@ -466,6 +466,18 @@ local function setup(configs)
     CmpItemKindConstant = { link = "@constant" },
     CmpItemKindStruct = { link = "@structure" },
     CmpItemKindTypeParameter = { link = "@variable.parameter" },
+
+    -- blink.nvim
+    BlinkCmpDoc = { fg = colors.fg, bg = colors.bg_highlight },
+    BlinkCmpDocBorder = { fg = colors.green, bg = colors.bg_float },
+    BlinkCmpGhostText = { fg = colors.fg_gutter_light },
+    BlinkCmpKind = { fg = colors.cyan, bg = colors.none },
+    BlinkCmpLabel = { fg = colors.fg, bg = colors.none },
+    BlinkCmpLabelDeprecated = { fg = colors.fg_gutter, bg = colors.none, strikethrough = true },
+    BlinkCmpLabelMatch = { fg = colors.bright_cyan, bg = colors.none },
+    BlinkCmpMenu = { fg = colors.fg, bg = colors.bg_highlight },
+    BlinkCmpMenuBorder = { fg = colors.green, bg = colors.bg },
+    BlinkCmpScrollBarThumb = { fg = colors.bg_highlight, bg = colors.cyan },
 
     -- navic
     NavicIconsFile = { link = "CmpItemKindFile" },
