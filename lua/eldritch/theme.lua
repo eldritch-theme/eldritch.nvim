@@ -69,9 +69,9 @@ function M.setup()
     NormalFloat = { fg = c.fg_float, bg = bg_float_configured }, -- Normal text in floating windows.
     FloatBorder = { fg = c.green, bg = bg_float_configured },
     FloatTitle = { fg = c.cyan, bg = bg_float_configured },
-    Pmenu = { bg = c.bg_popup, fg = c.fg }, -- Popup menu: normal item.
-    PmenuSel = { bg = util.darken(c.fg_gutter, 0.8) }, -- Popup menu: selected item.
-    PmenuSbar = { bg = util.lighten(c.bg_popup, 0.95) }, -- Popup menu: scrollbar.
+    Pmenu = { bg = c.fg_gutter, fg = c.fg }, -- Popup menu: normal item.
+    PmenuSel = { bg = c.cyan, fg = c.fg }, -- Popup menu: selected item.
+    PmenuSbar = { fg = c.green, bg = c.bg_highlight }, -- Popup menu: scrollbar.
     PmenuThumb = { bg = c.fg_gutter }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = c.cyan }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { bg = c.bg_visual, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
@@ -107,30 +107,30 @@ function M.setup()
     String = { fg = c.yellow }, --   a string constant: "this is a string"
     Character = { fg = c.orange }, --  a character constant: 'c', '\n'
     -- Number        = { }, --   a number constant: 234, 0xff
-    -- Boolean       = { }, --  a boolean constant: TRUE, false
-    -- Float         = { }, --    a floating point constant: 2.3e10
+    Boolean = { fg = c.cyan }, --  a boolean constant: TRUE, false
+    Float = { fg = c.orange }, --    a floating point constant: 2.3e10
 
     Identifier = { fg = c.magenta, style = options.styles.variables }, -- (preferred) any variable name
     Function = { fg = c.pink, style = options.styles.functions }, -- function name (also: methods for classes)
 
     Statement = { fg = c.magenta }, -- (preferred) any statement
-    -- Conditional   = { }, --  if, then, else, endif, switch, etc.
+    Conditional = { fg = c.purple }, --  if, then, else, endif, switch, etc.
     -- Repeat        = { }, --   for, do, while, etc.
     -- Label         = { }, --    case, default, etc.
     Operator = { fg = c.cyan }, -- "sizeof", "+", "*", etc.
     Keyword = { fg = c.dark_cyan, style = options.styles.keywords }, --  any other keyword
-    -- Exception     = { }, --  try, catch, throw
+    Exception = { fg = c.green }, --  try, catch, throw
 
     PreProc = { fg = c.dark_cyan }, -- (preferred) generic Preprocessor
-    -- Include       = { }, --  preprocessor #include
+    Include = { fg = c.green }, --  preprocessor #include
     -- Define        = { }, --   preprocessor #define
-    -- Macro         = { }, --    same as Define
-    -- PreCondit     = { }, --  preprocessor #if, #else, #endif, etc.
+    Macro = { fg = c.green }, --    same as Define
+    PreCondit = { fg = c.cyan }, --  preprocessor #if, #else, #endif, etc.
 
     Type = { fg = c.cyan }, -- (preferred) int, long, char, etc.
-    -- StorageClass  = { }, -- static, register, volatile, etc.
-    -- Structure     = { }, --  struct, union, enum, etc.
-    -- Typedef       = { }, --  A typedef
+    StorageClass = { fg = c.purple }, -- static, register, volatile, etc.
+    Structure = { fg = c.yellow }, --  struct, union, enum, etc.
+    Typedef = { fg = c.yellow }, --  A typedef
 
     Special = { fg = c.cyan }, -- (preferred) any special symbol
     -- SpecialChar   = { }, --  special character in a constant
@@ -204,6 +204,16 @@ function M.setup()
     LspInlayHint = { bg = util.darken(c.cyan, 0.1), fg = c.dark3 },
 
     LspInfoBorder = { fg = c.border_highlight, bg = bg_float_configured },
+
+    -- Legacy LSP groups for older Neovim versions
+    LspDiagnosticsDefaultError = { fg = c.red },
+    LspDiagnosticsDefaultWarning = { fg = c.orange },
+    LspDiagnosticsDefaultInformation = { fg = c.yellow },
+    LspDiagnosticsDefaultHint = { fg = c.dark_green },
+    LspDiagnosticsUnderlineError = { undercurl = true, sp = c.red },
+    LspDiagnosticsUnderlineWarning = { undercurl = true, sp = c.orange },
+    LspDiagnosticsUnderlineInformation = { undercurl = true, sp = c.yellow },
+    LspDiagnosticsUnderlineHint = { undercurl = true, sp = c.dark_green },
 
     ALEErrorSign = { fg = c.red },
     ALEWarningSign = { fg = c.orange },
@@ -498,12 +508,19 @@ function M.setup()
     NvimTreeGitDirty = { fg = c.git.change },
     NvimTreeGitNew = { fg = c.git.add },
     NvimTreeGitDeleted = { fg = c.git.delete },
+    NvimTreeFolderName = { fg = c.fg_sidebar },
+    NvimTreeOpenedFolderName = { fg = c.fg_sidebar },
+    NvimTreeEmptyFolderName = { fg = c.comment },
     NvimTreeOpenedFile = { bg = c.bg_highlight },
     NvimTreeSpecialFile = { fg = c.green, underline = true },
     NvimTreeIndentMarker = { fg = c.fg_gutter },
     NvimTreeImageFile = { fg = c.fg_sidebar },
     NvimTreeSymlink = { fg = c.cyan },
     NvimTreeFolderIcon = { bg = c.none, fg = c.cyan },
+    NvimTreeCursorLine = { bg = c.bg_highlight },
+    NvimTreeIn = { bg = c.bg_highlight },
+    NvimTreeVertSplit = { fg = c.bg_sidebar, bg = c.bg_sidebar },
+    NvimTreeEndOfBuffer = { fg = c.bg_sidebar },
 
     NeoTreeNormal = { fg = c.fg_sidebar, bg = options.transparent and c.none or c.bg_sidebar },
     NeoTreeNormalNC = { fg = c.fg_sidebar, bg = options.transparent and c.none or c.bg_sidebar },
@@ -667,6 +684,8 @@ function M.setup()
     -- Cmp
     CmpDocumentation = { fg = c.fg, bg = bg_float_configured },
     CmpDocumentationBorder = { fg = c.border_highlight, bg = bg_float_configured },
+    CompeDocumentation = { link = "CmpDocumentation" },
+    CompeDocumentationBorder = { link = "CmpDocumentationBorder" },
     CmpGhostText = { fg = c.terminal_black },
 
     CmpItemAbbr = { fg = c.fg, bg = c.none },
@@ -691,7 +710,7 @@ function M.setup()
     BlinkCmpLabelDeprecated = { fg = c.fg_gutter, bg = c.none, strikethrough = true },
     BlinkCmpLabelMatch = { fg = c.bright_cyan, bg = c.none },
     BlinkCmpMenu = { fg = c.fg, bg = c.bg_highlight },
-    BlinkCmpMenuBorder = { fg = c.green, bg = c.bg },
+    BlinkCmpMenuBorder = { fg = c.green, bg = c.bg_highlight },
     BlinkCmpScrollBarThumb = { fg = c.bg_highlight, bg = c.cyan },
 
     -- fzf-lua
@@ -783,6 +802,31 @@ function M.setup()
 
     MiniIndentscopeSymbol = { fg = c.cyan, nocombine = true },
     MiniIndentscopePrefix = { nocombine = true }, -- Make it invisible
+
+    -- Dap UI
+    DapUIPlayPause = { fg = c.purple },
+    DapUIRestart = { fg = c.green },
+    DapUIStop = { fg = c.red },
+    DapUIStepOver = { fg = c.cyan },
+    DapUIStepInto = { fg = c.cyan },
+    DapUIStepOut = { fg = c.cyan },
+    DapUIStepBack = { fg = c.cyan },
+    DapUIType = { fg = c.cyan },
+    DapUIScope = { fg = c.magenta },
+    DapUIModifiedValue = { fg = c.magenta, bold = true },
+    DapUIDecoration = { fg = c.magenta },
+    DapUIThread = { fg = c.purple },
+    DapUIStoppedThread = { fg = c.magenta },
+    DapUISource = { fg = c.cyan },
+    DapUILineNumber = { fg = c.magenta },
+    DapUIFloatBorder = { fg = c.green },
+    DapUIWatchesEmpty = { fg = c.magenta },
+    DapUIWatchesValue = { fg = c.purple },
+    DapUIWatchesError = { fg = c.magenta },
+    DapUIBreakpointsPath = { fg = c.magenta },
+    DapUIBreakpointsInfo = { fg = c.purple },
+    DapUIBreakpointsCurrentLine = { fg = c.purple, bold = true },
+    DapUIWinSelect = { fg = c.magenta, bold = true },
 
     MiniJump = { bg = c.magenta2, fg = "#ffffff" },
 
