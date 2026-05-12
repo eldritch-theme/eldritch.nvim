@@ -69,10 +69,10 @@ function M.setup()
     NormalFloat = { fg = c.fg_float, bg = bg_float_configured }, -- Normal text in floating windows.
     FloatBorder = { fg = c.green, bg = bg_float_configured },
     FloatTitle = { fg = c.cyan, bg = bg_float_configured },
-    Pmenu = { bg = c.fg_gutter, fg = c.fg }, -- Popup menu: normal item.
-    PmenuSel = { bg = c.cyan, fg = c.fg }, -- Popup menu: selected item.
-    PmenuSbar = { fg = c.green, bg = c.bg_highlight }, -- Popup menu: scrollbar.
-    PmenuThumb = { bg = c.fg_gutter }, -- Popup menu: Thumb of the scrollbar.
+    Pmenu = { bg = c.bg, fg = c.fg }, -- Popup menu: normal item.
+    PmenuSel = { bg = c.cyan, fg = c.bg, bold = true }, -- Popup menu: selected item.
+    PmenuSbar = { bg = c.fg_gutter }, -- Popup menu: scrollbar.
+    PmenuThumb = { bg = c.comment }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = c.cyan }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { bg = c.bg_visual, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = { bg = c.bg_search, fg = c.fg }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
